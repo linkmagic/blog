@@ -16,26 +16,27 @@ function WhiteSpaceTop() {
   );
 }
 
+function HeaderPanelLogin() {
+  return (
+    <div className="header-panel-login">
+      <p className="login-user-name">User Name</p>
+      <img src="user.png" alt="user" />
+      <div class="header-panel-login-menu">
+        <p><a href="#">Login</a></p>
+        <p><a href="#">Logout</a></p>
+        <p><a href="#">Settings</a></p>
+      </div>
+    </div>
+  );
+}
+
 class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = { 
-      loginMenuVisible: false
-    };
-  }
 
-  HeaderPanelLogin() {
-    return (
-      <div className="header-panel-login">
-        <img src="user.png" alt="user" />
-        <div class="header-panel-login-menu">
-          <p><a href="#">Login</a></p>
-          <p><a href="#">Logout</a></p>
-          <p><a href="#">Settings</a></p>
-        </div>
-      </div>
-    );
+    };
   }
 
   render() {
