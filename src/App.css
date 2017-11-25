@@ -3,7 +3,6 @@ body {
 }
 
 header {
-  position: relative;
   width: 100%;
   height: 70px;
   border-top: 4px solid #00D7FE;
@@ -63,12 +62,91 @@ header > .logo {
   height: 60px;
 }
 
+/* !!! DEBUG HEIGHT !!! */
 .content {
   width: 100%;
   height: 1500px;
 }
 
-.content > p {
+/* Blog post style */
+
+.posts-board {
+  display: block;
+  padding: 10px 0 0 0;
+  outline: 1px dotted green;
+}
+
+.post-item {
+  /*outline: 1px dotted red;*/
+  display: inline-block;
+  margin: 20px;
+  padding: 0;
+  width: 450px;
+  height: 250px;
+}
+
+.post-item > .post-item-title,
+.post-item > .post-item-content {
   margin: 0;
-  outline: 2px dotted red;
+  padding: 0;
+}
+
+.post-item > .post-item-title {
+  font-family: Arial;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.post-item-info-short,
+.post-item-info-long {
+  display: block;
+}
+.post-item-date,
+.post-item-author,
+.post-item-comments,
+.post-item-rating,
+.post-item-bookmark-it {
+  display: inline-block;
+  margin: 0 20px 0 10px;
+  padding: 0;
+  font-family: Arial;
+  font-size: 14px;
+  color: gray;
+}
+
+.post-item > .post-item-content {
+  font-family: Arial;
+  font-size: 14px;
+  text-align: justify;
+  margin: 10px;
+}
+
+.post-item-info-long {
+  /*outline: 1px dotted red;*/
+  margin: 0;
+  padding: 0;
+}
+
+/* post rating */
+
+.post-item-rating {
+  margin: 0;
+  padding: 0;
+  height: 16px;
+}
+
+.post-item-rating > img {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0 0 -3px 0;
+}
+
+.post-item-rating > p {
+  pading: 0;
+  margin: 0 3px;
+}
+
+.post-item-rating > * {
+  display: inline-block;
 }
