@@ -30,13 +30,61 @@ function HeaderPanelLogin() {
   );
 }
 
-function PostRating() {
+function PostItemTitle(props) {
+  return (
+    <h3 className="post-item-title">{props.postItemTitle}</h3>
+  );
+}
+
+function PostItemContent(props) {
+  return (
+    <p className="post-item-content">{props.postItemContent}</p>
+  );
+}
+
+function PostItemDateTime(props) {
+  return (
+    <p className="post-item-date">
+      <img src="img/post-item-calendar.png" alt="post-item-calendar"/>
+      {props.postItemDateTime}
+    </p>
+  );
+}
+
+function PostItemAuthor(props) {
+  return (
+    <a href="#" className="post-item-author">
+      <img src="img/post-item-author.png" alt="post-item-author"/>
+      {props.postItemAuthor}
+    </a>
+  );
+}
+
+function PostItemComments(props) {
+  return (
+    <a href="#" className="post-item-comments">
+      <img src="img/post-item-comments.png" alt="post-item-comments"/>
+      {props.postItemComments}
+    </a>
+  );
+}
+
+function PostItemRating(props) {
   return (
     <div className="post-item-rating">
       <img src="img/rating-down.png" alt="rating-down"/>
-      <p>+107</p>
+      <p>{props.postItemRating}</p>
       <img src="img/rating-up.png" alt="rating-up"/>
     </div>
+  );
+}
+
+function PostItemBookmark(props) {
+  return (
+    <a href="#" className="post-item-bookmark-it">
+      <img src="img/post-item-bookmark.png" alt="post-item-bookmark"/>
+      Bookmark
+    </a>
   );
 }
 
@@ -62,20 +110,60 @@ class App extends Component {
             <div className="posts-board">
 
               <div className="post-item">
-                <h3 className="post-item-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
                 <div className="post-item-info-short">
-                  <p className="post-item-date">2017.10.10 15:50</p>
-                  <a href="#" className="post-item-author">Anatoly Vaskin</a>
+                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
+                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
                 </div>
-                <p className="post-item-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!</p>
+                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
                 <div className="post-item-info-long">
-                  <a href="#" className="post-item-comments">10 comments</a>
-                  <PostRating/>
-                  <a href="#" className="post-item-bookmark-it">Bkmrk</a>
+                  <PostItemComments postItemComments={"17 comments"}/>
+                  <PostItemRating postItemRating={"+109"}/>
+                  <PostItemBookmark/>
                 </div>
               </div>
 
+              <div className="post-item">
+                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
+                <div className="post-item-info-short">
+                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
+                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
+                </div>
+                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
+                <div className="post-item-info-long">
+                  <PostItemComments postItemComments={"17 comments"}/>
+                  <PostItemRating postItemRating={"+109"}/>
+                  <PostItemBookmark/>
+                </div>
+              </div>
 
+              <div className="post-item">
+                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
+                <div className="post-item-info-short">
+                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
+                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
+                </div>
+                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
+                <div className="post-item-info-long">
+                  <PostItemComments postItemComments={"17 comments"}/>
+                  <PostItemRating postItemRating={"+109"}/>
+                  <PostItemBookmark/>
+                </div>
+              </div>
+
+              <div className="post-item">
+                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
+                <div className="post-item-info-short">
+                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
+                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
+                </div>
+                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
+                <div className="post-item-info-long">
+                  <PostItemComments postItemComments={"17 comments"}/>
+                  <PostItemRating postItemRating={"+109"}/>
+                  <PostItemBookmark/>
+                </div>
+              </div>
 
             </div>
           </div>
