@@ -10,6 +10,36 @@ function Logo() {
   );
 }
 
+function HeaderMenu() {
+  return (
+    <nav className="header-nav-panel">
+      <div className="nav-panel-public-btn">
+        <a href="#">Все публикации</a>
+        <div className="nav-panel-public-btn-ext-menu">
+          <img src="img/nav-arrow-dowm.png" alt="nav-arrow-dowm"/>
+          <div className="nav-panel-public-btn-ext-menu-content">
+            <p><a href="#">Программирование</a></p>
+            <p><a href="#">Дизайн</a></p>
+            <p><a href="#">Администрирование</a></p>
+            <p><a href="#">Маркетинг</a></p>
+            <p><a href="#">Гаджеты</a></p>
+            <p><a href="#">Наука</a></p>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  );
+}
+
+function HeaderSearchPanel() {
+  return(
+    <div className="header-search-panel">
+      SEARCH
+    </div>
+  );
+}
+
 function WhiteSpaceTop() {
   return (
     <div className="white-space-top" />
@@ -102,6 +132,8 @@ class App extends Component {
       <div>
         <header>
           <Logo/>
+          <HeaderMenu/>
+          <HeaderSearchPanel/>
           <HeaderPanelLogin/>
         </header>
         <div className="content">

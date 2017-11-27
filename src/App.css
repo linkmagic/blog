@@ -22,6 +22,69 @@ header > .logo {
   color: #00D7FE;
 }
 
+/* header navigation panel */
+
+.header-nav-panel {
+  display: inline-block;
+  color: #00D7FE;
+  margin: 0 100px 0 70px;
+  padding: 0;
+  /*outline: 1px dotted lime;*/
+}
+
+/* header navigation panel > public btn */
+
+.nav-panel-public-btn > a {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  color: #00D7FE;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 16px;
+}
+
+.nav-panel-public-btn-ext-menu {
+  display: inline-block;
+  color: #00D7FE;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-panel-public-btn-ext-menu > img {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 -5px 5px;
+}
+
+.nav-panel-public-btn-ext-menu img:hover ~ .nav-panel-public-btn-ext-menu-content {
+  display: block;
+}
+
+.nav-panel-public-btn-ext-menu-content {
+  display: none;
+  position: absolute;
+  margin: 0px 0px 0px -30px;
+  min-width: 140px;
+  background-color: white;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 0px 10px;
+  z-index: 1;
+}
+
+/* header search panel */
+
+.header-search-panel {
+  display: inline-block;
+  /*floar: right;*/
+  color: #00D7FE;
+  margin: 0 100px 0 100px;
+}
+
+/* header login panel */
+
 .header-panel-login {
   display: flex;
   float: right;
@@ -104,7 +167,7 @@ header > .logo {
   margin: 0;
   padding: 5px 0;
   outline: 1px solid #eaeaea;
-  background-color: #efefef;
+  background-color: #f4f4f4;
 }
 
 .post-item-date,
