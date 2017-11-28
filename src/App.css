@@ -28,8 +28,8 @@ header > .logo {
   display: inline-block;
   color: #00D7FE;
   margin: 0 100px 0 70px;
-  padding: 0;
-  /*outline: 1px dotted lime;*/
+  padding: 5px;
+  /*outline: 1px dotted yellow;*/
 }
 
 /* header navigation panel > public btn */
@@ -50,6 +50,7 @@ header > .logo {
   color: #00D7FE;
   margin: 0;
   padding: 0;
+  /*outline: 1px dotted lime;*/
 }
 
 .nav-panel-public-btn-ext-menu > img {
@@ -58,19 +59,15 @@ header > .logo {
   margin: 0 0 -5px 5px;
 }
 
-.nav-panel-public-btn-ext-menu img:hover ~ .nav-panel-public-btn-ext-menu-content {
-  display: block;
-}
-
 .nav-panel-public-btn-ext-menu-content {
   display: none;
   position: absolute;
-  margin: 0px 0px 0px -30px;
+  margin: 0;
   min-width: 140px;
   background-color: white;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  padding: 0px 10px;
+  padding: 0 10px;
   z-index: 1;
 }
 
@@ -107,12 +104,12 @@ header > .logo {
 .header-panel-login-menu {
   display: none;
   position: absolute;
-  margin: 25px 0px 0px -30px;
+  margin: 25px 0 0 -30px;
   min-width: 140px;
   background-color: white;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  padding: 0px 10px;
+  padding: 0 10px;
   z-index: 1;
 }
 
@@ -260,4 +257,10 @@ header > .logo {
   width: 16px;
   height: 16px;
   margin: 0 3px -3px 0;
+}
+
+/* Utils */
+
+.show-component {
+  display: block;
 }

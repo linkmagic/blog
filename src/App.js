@@ -10,14 +10,14 @@ function Logo() {
   );
 }
 
-function HeaderMenu() {
+function HeaderMenu(props) {
   return (
     <nav className="header-nav-panel">
       <div className="nav-panel-public-btn">
         <a href="#">Все публикации</a>
-        <div className="nav-panel-public-btn-ext-menu">
+        <div onClick={props.arrowOnClick} className="nav-panel-public-btn-ext-menu">
           <img src="img/nav-arrow-dowm.png" alt="nav-arrow-dowm"/>
-          <div className="nav-panel-public-btn-ext-menu-content">
+          <div id="navPanelPublicBtnExtMenuContent" className="nav-panel-public-btn-ext-menu-content">
             <p><a href="#">Программирование</a></p>
             <p><a href="#">Дизайн</a></p>
             <p><a href="#">Администрирование</a></p>
@@ -122,17 +122,24 @@ class App extends Component {
   
   constructor(props) {
     super(props);
-    this.state = { 
+
+    this.state = {
 
     };
+
+    this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
+
+  headerMenuCategoryClick() {
+    document.getElementById("navPanelPublicBtnExtMenuContent").classList.toggle("show-component");
+  };
 
   render() {
     return (
       <div>
         <header>
           <Logo/>
-          <HeaderMenu/>
+          <HeaderMenu arrowOnClick={this.headerMenuCategoryClick}/>
           <HeaderSearchPanel/>
           <HeaderPanelLogin/>
         </header>
