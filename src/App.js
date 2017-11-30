@@ -16,12 +16,12 @@ function HeaderMenu(props) {
   return (
     <nav className="header-nav-panel">
       <DropDown title="Все публикации">
-        <p><a href="#">Программирование</a></p> {/*FIXME replace to styled button*/}
-        <p><a href="#">Дизайн</a></p>
-        <p><a href="#">Администрирование</a></p>
-        <p><a href="#">Маркетинг</a></p>
-        <p><a href="#">Гаджеты</a></p>
-        <p><a href="#">Наука</a></p>
+        <p><button className="dropdown-content-btn-style">Программирование</button></p>
+        <p><button className="dropdown-content-btn-style">Дизайн</button></p>
+        <p><button className="dropdown-content-btn-style">Администрирование</button></p>
+        <p><button className="dropdown-content-btn-style">Маркетинг</button></p>
+        <p><button className="dropdown-content-btn-style">Гаджеты</button></p>
+        <p><button className="dropdown-content-btn-style">Наука</button></p>
       </DropDown>
     </nav>
   );
