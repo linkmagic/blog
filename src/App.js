@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import DropDown from "./DropDown";
+
 
 function Logo() {
   return (
@@ -13,21 +15,14 @@ function Logo() {
 function HeaderMenu(props) {
   return (
     <nav className="header-nav-panel">
-      <div className="nav-panel-public-btn">
-        <a href="#">Все публикации</a>
-        <div onClick={props.arrowOnClick} className="nav-panel-public-btn-ext-menu">
-          <img src="img/nav-arrow-dowm.png" alt="nav-arrow-dowm"/>
-          <div id="navPanelPublicBtnExtMenuContent" className="nav-panel-public-btn-ext-menu-content">
-            <p><a href="#">Программирование</a></p>
-            <p><a href="#">Дизайн</a></p>
-            <p><a href="#">Администрирование</a></p>
-            <p><a href="#">Маркетинг</a></p>
-            <p><a href="#">Гаджеты</a></p>
-            <p><a href="#">Наука</a></p>
-          </div>
-        </div>
-      </div>
-
+      <DropDown title="Все публикации">
+        <p><a href="#">Программирование</a></p> {/*FIXME replace to styled button*/}
+        <p><a href="#">Дизайн</a></p>
+        <p><a href="#">Администрирование</a></p>
+        <p><a href="#">Маркетинг</a></p>
+        <p><a href="#">Гаджеты</a></p>
+        <p><a href="#">Наука</a></p>
+      </DropDown>
     </nav>
   );
 }
@@ -119,7 +114,7 @@ function PostItemBookmark(props) {
 }
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
 
