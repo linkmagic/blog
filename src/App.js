@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import DropDown from "./DropDown";
+import RatingCounter from "./RatingCounter"
 
 
 function Logo() {
@@ -152,49 +153,7 @@ class App extends Component {
                 <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
                 <div className="post-item-info-long">
                   <PostItemComments postItemComments={"17 comments"}/>
-                  <PostItemRating postItemRating={"+109"}/>
-                  <PostItemBookmark/>
-                </div>
-              </div>
-
-              <div className="post-item">
-                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
-                <div className="post-item-info-short">
-                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
-                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
-                </div>
-                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
-                <div className="post-item-info-long">
-                  <PostItemComments postItemComments={"17 comments"}/>
-                  <PostItemRating postItemRating={"+109"}/>
-                  <PostItemBookmark/>
-                </div>
-              </div>
-
-              <div className="post-item">
-                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
-                <div className="post-item-info-short">
-                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
-                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
-                </div>
-                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
-                <div className="post-item-info-long">
-                  <PostItemComments postItemComments={"17 comments"}/>
-                  <PostItemRating postItemRating={"+109"}/>
-                  <PostItemBookmark/>
-                </div>
-              </div>
-
-              <div className="post-item">
-                <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
-                <div className="post-item-info-short">
-                  <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
-                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
-                </div>
-                <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
-                <div className="post-item-info-long">
-                  <PostItemComments postItemComments={"17 comments"}/>
-                  <PostItemRating postItemRating={"+109"}/>
+                  <RatingCounter/>
                   <PostItemBookmark/>
                 </div>
               </div>
