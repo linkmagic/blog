@@ -1,0 +1,13 @@
+header > .logo {
+  margin: 18px 0 0 18px;
+  display: inline-block;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 30px;
+  color: #00D7FE;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #00D7FE;
+}

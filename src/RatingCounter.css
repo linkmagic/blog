@@ -1,0 +1,21 @@
+.post-item-rating {
+  margin: 0 0 0 20px;
+  padding: 0;
+  height: 16px;
+}
+
+.post-item-rating > img {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0 0 -3px 0;
+}
+
+.post-item-rating > p {
+  padding: 0;
+  margin: 0 3px;
+}
+
+.post-item-rating > * {
+  display: inline-block;
+}

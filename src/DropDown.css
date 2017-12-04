@@ -1,0 +1,23 @@
+.dropdown-title-btn-style {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+
+.dropdown-content-btn-style {
+  font-family: Arial;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content-btn-style:hover {
+  color: #00D7FE;
+}
