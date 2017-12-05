@@ -31,10 +31,12 @@ export default class RatingCounter extends React.Component {
     const { postItemRating } = this.state;
 
     return (
-      <div className="post-item-rating">
-        <img src="img/rating-down.png" alt="rating-down" onClick={this.clickDown} />
-        <p>{postItemRating}</p>
-        <img src="img/rating-up.png" alt="rating-up" onClick={this.clickUp}/>
+      <div className="RatingCounter">
+        <img className="RatingCounter__Btn" src="img/rating-down.png" alt="rating-down" onClick={this.clickDown} />
+        <p className="RatingCounter__Value">
+          {postItemRating}
+        </p>
+        <img className="RatingCounter__Btn" src="img/rating-up.png" alt="rating-up" onClick={this.clickUp}/>
       </div>
     );
   }

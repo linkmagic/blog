@@ -1,4 +1,4 @@
-.dropdown-title-btn-style {
+.DropDown__Title {
   font-family: Arial;
   font-weight: bold;
   font-size: 16px;
@@ -8,7 +8,34 @@
   text-align: left;
 }
 
-.dropdown-content-btn-style {
+.DropDown__Menu {
+  display: none;
+  position: absolute;
+  margin: 0;
+  min-width: 140px;
+  background: #333333;
+  background: linear-gradient(180deg,#444444 0%, #111111 100%);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  border: 1px solid #9a9a9a;
+  border-radius: 10px;
+  padding: 0 10px;
+  z-index: 1;
+}
+
+.DropDown__ArrowBtn {
+  display: inline-block;
+  color: #00D7FE;
+  margin: 0;
+  padding: 0;
+}
+
+.DropDown__ArrowBtnImg {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 -5px 5px;
+}
+
+.DropDown__MenuItem {
   font-family: Arial;
   font-size: 14px;
   color: rgb(255, 255, 255);
@@ -18,6 +45,6 @@
   text-align: left;
 }
 
-.dropdown-content-btn-style:hover {
+.DropDown__MenuItem:hover {
   color: #00D7FE;
 }

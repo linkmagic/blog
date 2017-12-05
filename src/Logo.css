@@ -1,4 +1,4 @@
-header > .logo {
+.SiteLogo {
   margin: 18px 0 0 18px;
   display: inline-block;
   font-family: Arial;
@@ -7,7 +7,7 @@ header > .logo {
   color: #00D7FE;
 }
 
-.logo a {
+.SiteLogo__Title {
   text-decoration: none;
   color: #00D7FE;
 }

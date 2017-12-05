@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './DropDown.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -10,14 +11,14 @@ import registerServiceWorker from './registerServiceWorker';
 
   window.onclick = function hideDropdownMenu(e) {
 
-    if (e.target.matches('nav-panel-public-btn-ext-menu')) {
+    if (e.target.matches('DropDown__ArrowBtn')) {
       return;
     }
 
-    var ddMenu = document.getElementsByClassName('nav-panel-public-btn-ext-menu')[0];
+    var ddMenu = document.getElementsByClassName('DropDown__ArrowBtn')[0];
 
-    if (ddMenu.classList.contains('show-component')) {
-      ddMenu.classList.toggle('show-component');
+    if (ddMenu.classList.contains('Component-show')) {
+      ddMenu.classList.toggle('Component-show');
     }
 
   }

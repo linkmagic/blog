@@ -36,12 +36,12 @@ export default class DropDown extends React.Component {
     const { isOpen } = this.state;
 
     return (
-      <div className="nav-panel-public-btn">
-        <button className="dropdown-title-btn-style">{title}</button>
+      <div>
+        <button className="DropDown__Title">{title}</button>
 
-        <div onClick={this.open} className="nav-panel-public-btn-ext-menu">
-          <img src="img/nav-arrow-down.png" alt="nav-arrow-dowm"/>
-          <div id="navPanelPublicBtnExtMenuContent" className={`nav-panel-public-btn-ext-menu-content ${isOpen ? 'show-component' : ''}`}>
+        <div onClick={this.open} className="DropDown__ArrowBtn">
+          <img className="DropDown__ArrowBtnImg" src="img/nav-arrow-down.png" alt="nav-arrow-dowm"/>
+          <div id="navPanelPublicBtnExtMenuContent" className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
             {children}
           </div>
         </div>

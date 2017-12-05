@@ -1,21 +1,20 @@
-.post-item-rating {
+.RatingCounter {
+  display: inline-block;
   margin: 0 0 0 20px;
   padding: 0;
   height: 16px;
 }
 
-.post-item-rating > img {
+.RatingCounter__Btn {
+  display: inline-block;
   width: 16px;
   height: 16px;
   padding: 0;
   margin: 0 0 -3px 0;
 }
 
-.post-item-rating > p {
+.RatingCounter__Value {
+  display: inline-block;
   padding: 0;
   margin: 0 3px;
-}
-
-.post-item-rating > * {
-  display: inline-block;
 }

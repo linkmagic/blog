@@ -5,9 +5,9 @@ export default class Logo extends React.Component {
 
   render() {
     return (
-      <div className="logo">
+      <div className="SiteLogo">
         <sup>&lt;</sup>/<sub>&gt;</sub>&nbsp;
-        <a href="/">dev.ua</a>
+        <a className="SiteLogo__Title" href="/">dev.ua</a>
       </div>
     );
   }

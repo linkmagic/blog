@@ -25,50 +25,50 @@ header {
 
 /* header navigation panel > public btn */
 
-.nav-panel-public-btn > a {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  color: #00D7FE;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: Arial;
-  font-size: 16px;
-}
+/*.nav-panel-public-btn > a {*/
+  /*display: inline-block;*/
+  /*padding: 0;*/
+  /*margin: 0;*/
+  /*color: #00D7FE;*/
+  /*text-decoration: none;*/
+  /*font-weight: bold;*/
+  /*font-family: Arial;*/
+  /*font-size: 16px;*/
+/*}*/
 
-.nav-panel-public-btn-ext-menu {
-  display: inline-block;
-  color: #00D7FE;
-  margin: 0;
-  padding: 0;
-  /*outline: 1px dotted lime;*/
-}
+/*.nav-panel-public-btn-ext-menu {*/
+  /*display: inline-block;*/
+  /*color: #00D7FE;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*!*outline: 1px dotted lime;*!*/
+/*}*/
 
-.nav-panel-public-btn-ext-menu > img {
-  width: 24px;
-  height: 24px;
-  margin: 0 0 -5px 5px;
-}
+/*.nav-panel-public-btn-ext-menu > img {*/
+  /*width: 24px;*/
+  /*height: 24px;*/
+  /*margin: 0 0 -5px 5px;*/
+/*}*/
 
-.nav-panel-public-btn-ext-menu-content {
-  display: none;
-  position: absolute;
-  margin: 0;
-  min-width: 140px;
-  background: #333333;
-  background: linear-gradient(180deg,#444444 0%, #111111 100%);
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-  border: 1px solid #9a9a9a;
-  border-radius: 10px;
-  padding: 0 10px;
-  z-index: 1;
-}
+/*.nav-panel-public-btn-ext-menu-content {*/
+  /*display: none;*/
+  /*position: absolute;*/
+  /*margin: 0;*/
+  /*min-width: 140px;*/
+  /*background: #333333;*/
+  /*background: linear-gradient(180deg,#444444 0%, #111111 100%);*/
+  /*box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);*/
+  /*border: 1px solid #9a9a9a;*/
+  /*border-radius: 10px;*/
+  /*padding: 0 10px;*/
+  /*z-index: 1;*/
+/*}*/
 
 /* header search panel */
 
 .header-search-panel {
   display: inline-block;
-  /*floar: right;*/
+  /*float: right;*/
   color: #00D7FE;
   margin: 0 100px 0 100px;
 }
@@ -133,7 +133,7 @@ header {
   display: inline-block;
   margin: 20px;
   padding: 0;
-  width: 95%;
+  width: calc(100% - 40px);
   outline: 1px solid #eaeaea;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
 }
@@ -227,6 +227,6 @@ header {
 
 /* Utils */
 
-.show-component {
+.Component-show {
   display: block;
 }
