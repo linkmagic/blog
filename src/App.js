@@ -4,6 +4,7 @@ import './App.css';
 import DropDown from "./DropDown";
 import RatingCounter from "./RatingCounter";
 import Logo from "./Logo";
+import Search from "./Search";
 
 function HeaderMenu(props) {
   return (
@@ -17,14 +18,6 @@ function HeaderMenu(props) {
         <p><button className="DropDown__MenuItem">Наука</button></p>
       </DropDown>
     </nav>
-  );
-}
-
-function HeaderSearchPanel() {
-  return(
-    <div className="header-search-panel">
-      SEARCH
-    </div>
   );
 }
 
@@ -128,7 +121,7 @@ class App extends Component {
         <header>
           <Logo/>
           <HeaderMenu arrowOnClick={this.headerMenuCategoryClick}/>
-          <HeaderSearchPanel/>
+          <Search/>
           <HeaderPanelLogin/>
         </header>
         <div className="content">

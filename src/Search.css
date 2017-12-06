@@ -1,0 +1,28 @@
+.Search {
+  display: inline-block;
+  color: #00D7FE;
+  margin: 0 100px 0 100px;
+}
+
+.Search__Text {
+  background-color: transparent;
+  border: 1px solid #888888;
+  padding: 5px;
+  color: #00D7FE;
+}
+
+.Search__TextImgSearch {
+  width: 16px;
+  height: 16px;
+  margin: 0 0 -3px -21px;
+}
+
+.Search__Text::-webkit-input-placeholder {
+  color: #009DBF;
+}
+.Search__Text::-moz-placeholder {
+  color: #009DBF;
+}
+.Search__Text:-ms-input-placeholder {
+  color: #009DBF;
+}
