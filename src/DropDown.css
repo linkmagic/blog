@@ -12,13 +12,13 @@
   display: none;
   position: absolute;
   margin: 0;
-  min-width: 140px;
+  padding: 0;
+  width: auto;
   background: #333333;
   background: linear-gradient(180deg,#444444 0%, #111111 100%);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border: 1px solid #9a9a9a;
   border-radius: 10px;
-  padding: 0 10px;
   z-index: 1;
 }
 
@@ -36,13 +36,16 @@
 }
 
 .DropDown__MenuItem {
+  display: block;
   font-family: Arial;
   font-size: 14px;
   color: rgb(255, 255, 255);
   background-color: transparent;
   border: none;
-  width: 100%;
+  width: calc(100% - 20px);
   text-align: left;
+  padding: 0;
+  margin: 15px 10px;
 }
 
 .DropDown__MenuItem:hover {

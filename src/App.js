@@ -5,17 +5,20 @@ import DropDown from "./DropDown";
 import RatingCounter from "./RatingCounter";
 import Logo from "./Logo";
 import Search from "./Search";
+import Login from './Login';
 
 function HeaderMenu(props) {
   return (
     <nav className="header-nav-panel">
       <DropDown title="Все публикации">
-        <p><button className="DropDown__MenuItem">Программирование</button></p>
-        <p><button className="DropDown__MenuItem">Дизайн</button></p>
-        <p><button className="DropDown__MenuItem">Администрирование</button></p>
-        <p><button className="DropDown__MenuItem">Маркетинг</button></p>
-        <p><button className="DropDown__MenuItem">Гаджеты</button></p>
-        <p><button className="DropDown__MenuItem">Наука</button></p>
+        {"Программирование"}
+        {function() { alert('Программирование') }}
+        {"Дизайн"}
+        {function() { alert('Дизайн') }}
+        {"Администрирование"}
+        {function() { alert('Администрирование') }}
+        {"Маркетинг"}
+        {function() { alert('Маркетинг') }}
       </DropDown>
     </nav>
   );
@@ -24,20 +27,6 @@ function HeaderMenu(props) {
 function WhiteSpaceTop() {
   return (
     <div className="white-space-top" />
-  );
-}
-
-function HeaderPanelLogin() {
-  return (
-    <div className="header-panel-login">
-      <p className="login-user-name">User Name</p>
-      <img src="img/user.png" alt="user" />
-      <div className="header-panel-login-menu">
-        <p><a href="#">Login</a></p>
-        <p><a href="#">Logout</a></p>
-        <p><a href="#">Settings</a></p>
-      </div>
-    </div>
   );
 }
 
@@ -103,11 +92,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    };
-
+    this.state = {};
     this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
 
@@ -122,7 +107,7 @@ class App extends Component {
           <Logo/>
           <HeaderMenu arrowOnClick={this.headerMenuCategoryClick}/>
           <Search/>
-          <HeaderPanelLogin/>
+          <Login userName="John Q." />
         </header>
         <div className="content">
           <WhiteSpaceTop/>
@@ -133,7 +118,7 @@ class App extends Component {
                 <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
                 <div className="post-item-info-short">
                   <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
-                  <PostItemAuthor postItemAuthor={"Vasya Vaskin"}/>
+                  <PostItemAuthor postItemAuthor={"John Q."}/>
                 </div>
                 <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
                 <div className="post-item-info-long">
