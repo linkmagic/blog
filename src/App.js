@@ -12,13 +12,13 @@ function HeaderMenu(props) {
     <nav className="header-nav-panel">
       <DropDown title="Все публикации">
         {"Программирование"}
-        {function() { alert('Программирование') }}
+        {function() { console.log('Программирование') }}
         {"Дизайн"}
-        {function() { alert('Дизайн') }}
+        {function() { console.log('Дизайн') }}
         {"Администрирование"}
-        {function() { alert('Администрирование') }}
+        {function() { console.log('Администрирование') }}
         {"Маркетинг"}
-        {function() { alert('Маркетинг') }}
+        {function() { console.log('Маркетинг') }}
       </DropDown>
     </nav>
   );

@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './DropDown.css';
 
 export default class DropDown extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isOpen: false};
-    // console.log(window.innerWidth, window.innerHeight);
+
+    this.state = {
+      isOpen: false,
+      wndWidth: window.innerWidth,
+      wndHeight: window.innerHeight,
+      stylePos: {
+        position: 'absolute',
+        left: 0,
+        top: 0
+      }
+    };
+
   }
 
   open = () => {
@@ -18,6 +29,30 @@ export default class DropDown extends React.Component {
       this.setState({isOpen: false});
     }
   };
+
+  componentDidMount() {
+    let rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
+    let x, y;
+
+    console.log(rect);
+
+    if (rect.right > this.state.wndWidth) {
+      x = rect.left - rect.width;
+    } else {
+      x = rect.left;
+    }
+
+    // if (rect.top + rect.)
+    y = rect.top;
+
+    this.setState({
+      stylePos: {
+        position: 'absolute',
+        left: (x + 'px'),
+        top: (y + 'px')
+      }
+    });
+  }
 
   componentDidUpdate() {
     if (this.state.isOpen) {
@@ -44,7 +79,7 @@ export default class DropDown extends React.Component {
 
         <div onClick={this.open} className="DropDown__ArrowBtn">
           <img className="DropDown__ArrowBtnImg" src="img/nav-arrow-down.png" alt="nav-arrow-dowm"/>
-          <div id="navPanelPublicBtnExtMenuContent" className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
+          <div id="navPanelPublicBtnExtMenuContent" style={this.state.stylePos} className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
             {
               children.map((itemName, itemIndex) => {
                 return itemIndex % 2 === 0
