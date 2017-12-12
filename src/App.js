@@ -11,14 +11,18 @@ function HeaderMenu(props) {
   return (
     <nav className="header-nav-panel">
       <DropDown title="Все публикации">
-        {"Программирование"}
-        {function() { console.log('Программирование') }}
-        {"Дизайн"}
-        {function() { console.log('Дизайн') }}
-        {"Администрирование"}
-        {function() { console.log('Администрирование') }}
-        {"Маркетинг"}
-        {function() { console.log('Маркетинг') }}
+        <button className="DropDown__MenuItem">Программирование</button>
+        <button className="DropDown__MenuItem">Дизайн</button>
+        <button className="DropDown__MenuItem">Администрирование</button>
+        <button className="DropDown__MenuItem">Маркетинг</button>
+        {/*"Программирование"*/}
+        {/*function() { console.log('Программирование') }*/}
+        {/*"Дизайн"*/}
+        {/*function() { console.log('Дизайн') }*/}
+        {/*"Администрирование"*/}
+        {/*function() { console.log('Администрирование') }*/}
+        {/*"Маркетинг"*/}
+        {/*function() { console.log('Маркетинг') }*/}
       </DropDown>
     </nav>
   );
