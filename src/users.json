@@ -1,0 +1,23 @@
+[
+  {
+    "userid": "20171216225100",
+    "name": "John",
+    "surname": "Q.",
+    "birthdate": "1988.12.12",
+    "regdate": "2017.12.12"
+  },
+  {
+    "userid": "20171216232100",
+    "name": "Andy",
+    "surname": "R.",
+    "birthdate": "1976.10.19",
+    "regdate": "2015.02.17"
+  },
+  {
+    "userid": "20171216232200",
+    "name": "Roudy",
+    "surname": "Rods",
+    "birthdate": "1979.11.03",
+    "regdate": "2016.10.10"
+  }
+]

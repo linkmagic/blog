@@ -1,6 +1,7 @@
 {
+  "id": "20171216225100",
   "name": "John",
   "surname": "Q.",
   "birthdate": "1988.12.12",
-  "role": "admin"
+  "regdate": "2017.12.12"
 }
