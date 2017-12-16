@@ -5,8 +5,7 @@ import './DropDown.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// utils
-
+// add global DropDown event listener
 (function () {
 
   window.onclick = function hideDropdownMenu(e) {
@@ -25,7 +24,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 }) ();
 
-// ---
+// load JSON User data
+var jsonUserData = require('./user.json');
+(function () {
+  console.log(jsonUserData);
+}) ();
 
+// rendering
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
