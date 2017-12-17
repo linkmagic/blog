@@ -1,0 +1,13 @@
+.PostItemDate {
+  display: inline-block;
+  font-family: Arial;
+  font-size: 14px;
+  color: gray;
+  margin: 0 0 0 10px;
+}
+
+.PostItemDate__Img {
+  width: 16px;
+  height: 16px;
+  margin: 0 3px -2px 0;
+}

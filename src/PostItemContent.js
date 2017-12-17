@@ -11,7 +11,9 @@ export default class PostItemContent extends React.Component {
 
   render() {
     return (
-      <p className="post-item-content">{this.props.postItemContent}</p>
+      <p className="PostItemContent">
+        {this.props.postItemContent}
+      </p>
     );
   }
 

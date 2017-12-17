@@ -11,8 +11,8 @@ export default class PostItemBookmark extends React.Component {
 
   render() {
     return (
-      <a href="#" className="post-item-bookmark-it">
-        <img src="img/post-item-bookmark.png" alt="post-item-bookmark"/>
+      <a href="#" className="PostItemBookmark">
+        <img className="PostItemBookmark__Img" src="img/post-item-bookmark.png" alt="post-item-bookmark"/>
         Bookmark
       </a>
     );

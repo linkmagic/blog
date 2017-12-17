@@ -11,8 +11,8 @@ export default class PostItemAuthor extends React.Component {
 
   render() {
     return (
-      <a href="#" className="post-item-author">
-        <img src="img/post-item-author.png" alt="post-item-author"/>
+      <a href="#" className="PostItemAuthor">
+        <img className="PostItemAuthor__Img" src="img/post-item-author.png" alt="post-item-author"/>
         {this.props.postItemAuthor}
       </a>
     );

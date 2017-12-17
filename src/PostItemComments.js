@@ -10,8 +10,8 @@ export default class PostItemComments extends React.Component {
 
   render() {
     return (
-      <a href="#" className="post-item-comments">
-        <img src="img/post-item-comments.png" alt="post-item-comments"/>
+      <a href="#" className="PostItemComments">
+        <img className="PostItemComments__Img" src="img/post-item-comments.png" alt="post-item-comments"/>
         {this.props.postItemComments}
       </a>
     );
