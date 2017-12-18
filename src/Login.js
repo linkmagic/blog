@@ -7,17 +7,15 @@ export default class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
-
     const { userName } = this.props;
 
     return (
       <div className="Login">
 
-        <p className="Login__Title">{userName}</p>
+        <p className="Login__Title">{ userName }</p>
         <img className="Login__Avatar" src="img/user.png" alt="user"/>
 
         <DropDown>

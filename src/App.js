@@ -1,33 +1,12 @@
 import React, { Component } from 'react';
-
 import './App.css';
-import DropDown from "./DropDown";
-import RatingCounter from "./RatingCounter";
-import Logo from "./Logo";
-import Search from "./Search";
+
+import NavMenu from './NavMenu';
+import Logo from './Logo';
+import Search from './Search';
 import Login from './Login';
 import PostItem from './PostItem';
-
-function HeaderMenu(props) {
-  return (
-    <nav className="header-nav-panel">
-      <DropDown title="Все публикации">
-        <button className="DropDown__MenuItem">Программирование</button>
-        <button className="DropDown__MenuItem">Дизайн</button>
-        <button className="DropDown__MenuItem">Администрирование</button>
-        <button className="DropDown__MenuItem">Маркетинг</button>
-        {/*"Программирование"*/}
-        {/*function() { console.log('Программирование') }*/}
-        {/*"Дизайн"*/}
-        {/*function() { console.log('Дизайн') }*/}
-        {/*"Администрирование"*/}
-        {/*function() { console.log('Администрирование') }*/}
-        {/*"Маркетинг"*/}
-        {/*function() { console.log('Маркетинг') }*/}
-      </DropDown>
-    </nav>
-  );
-}
+import JSONResources from './JSONResources';
 
 function WhiteSpaceTop() {
   return (
@@ -35,11 +14,14 @@ function WhiteSpaceTop() {
   );
 }
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.jsonResources = new JSONResources();
+
     this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
 
@@ -52,17 +34,34 @@ class App extends Component {
       <div>
         <header>
           <Logo/>
-          <HeaderMenu arrowOnClick={this.headerMenuCategoryClick}/>
+          <NavMenu arrowOnClick={this.headerMenuCategoryClick}>
+            <button className="DropDown__MenuItem">Программирование</button>
+            <button className="DropDown__MenuItem">Дизайн</button>
+            <button className="DropDown__MenuItem">Администрирование</button>
+            <button className="DropDown__MenuItem">Маркетинг</button>
+          </NavMenu>
           <Search/>
-          <Login userName="John Q." />
+          <Login userName={ this.jsonResources.jsonUserData.name } />
         </header>
         <div className="content">
           <WhiteSpaceTop/>
           <div>
             <div className="posts-board">
-
-              <PostItem/>
-
+              {
+                this.jsonResources.jsonArticles.map((item, index) => {
+                  return (
+                    <PostItem postItemTitle = { item.title }
+                              postItemDateTime = { item.createdate }
+                              postItemAuthor = { item.userid }
+                              postItemComments = { item.comments }
+                              postItemRating = { item.rating }
+                              key={index}
+                    >
+                      {item.body}
+                    </PostItem>
+                  );
+                })
+              }
             </div>
           </div>
         </div>
@@ -71,4 +70,3 @@ class App extends Component {
   }
 }
 
-export default App;

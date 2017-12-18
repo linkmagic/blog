@@ -5,14 +5,14 @@ export default class PostItemContent extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {}
   }
 
   render() {
+    const { children } = this.props;
+
     return (
       <p className="PostItemContent">
-        {this.props.postItemContent}
+        {children}
       </p>
     );
   }

@@ -13,27 +13,36 @@ export default class PostItem extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {}
   }
 
   render() {
+    const {
+      postItemTitle,
+      postItemDateTime,
+      postItemAuthor,
+      postItemComments,
+      postItemRating,
+      children
+    } = this.props;
+
     return (
 
-      <div className="post-item">
+      <div className="PostItem">
         
-        <PostItemTitle postItemTitle={'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}/>
+        <PostItemTitle postItemTitle={postItemTitle}/>
           
-        <div className="post-item-info-short">
-          <PostItemDateTime postItemDateTime={"2017.07.07 17:15"} />
-          <PostItemAuthor postItemAuthor={"John Q."}/>
+        <div className="PostItem__Info">
+          <PostItemDateTime postItemDateTime={postItemDateTime} />
+          <PostItemAuthor postItemAuthor={postItemAuthor}/>
         </div>
         
-        <PostItemContent postItemContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem! consectetur adipisicing elit. Accusantium aliquid architecto atque beatae earum enim error, impedit in ipsam laboriosam non odit possimus quas quia quibusdam soluta ullam, vel, voluptatem!"/>
+        <PostItemContent>
+          {children}
+        </PostItemContent>
         
-        <div className="post-item-info-long">
-          <PostItemComments postItemComments={"17 comments"}/>
-          <RatingCounter/>
+        <div className="PostItem__Info">
+          <PostItemComments postItemComments={postItemComments + " comments"}/>
+          <RatingCounter postItemRating={postItemRating}/>
           <PostItemBookmark/>
         </div>
 

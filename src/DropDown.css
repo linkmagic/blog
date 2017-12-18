@@ -15,10 +15,10 @@
   padding: 0;
   width: auto;
   background: #333333;
-  background: linear-gradient(180deg,#444444 0%, #111111 100%);
+  background: linear-gradient(180deg, #444444 0%, #111111 100%);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border: 1px solid #9a9a9a;
-  border-radius: 10px;
+  border-radius: 4px;
   z-index: 1;
 }
 

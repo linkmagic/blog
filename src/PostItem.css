@@ -1,4 +1,4 @@
-.post-item {
+.PostItem {
   display: inline-block;
   margin: 20px;
   padding: 0;
@@ -7,8 +7,7 @@
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
 }
 
-.post-item-info-short,
-.post-item-info-long {
+.PostItem__Info {
   display: block;
   margin: 0;
   padding: 5px 0;

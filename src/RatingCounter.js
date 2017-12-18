@@ -7,7 +7,7 @@ export default class RatingCounter extends React.Component {
     super(props);
 
     this.state = {
-      postItemRating: 0
+      postItemRating: props.postItemRating
     };
   }
 

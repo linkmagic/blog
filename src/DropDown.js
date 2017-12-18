@@ -83,13 +83,6 @@ export default class DropDown extends React.Component {
         <div onClick={this.open} className="DropDown__ArrowBtn">
           <img className="DropDown__ArrowBtnImg" src="img/nav-arrow-down.png" alt="nav-arrow-dowm"/>
           <div id="navPanelPublicBtnExtMenuContent" className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
-            {/* style={this.state.stylePos}
-              children.map((itemName, itemIndex) => {
-                return itemIndex % 2 === 0
-                  ? <button key={itemIndex} onClick={children[itemIndex+1]} className="DropDown__MenuItem">{children[itemIndex]}</button>
-                  : '';
-              })
-            */}
             {children}
           </div>
         </div>
