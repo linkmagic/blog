@@ -8,6 +8,15 @@
   text-align: left;
 }
 
+.DropDown__Title:focus {
+  border: none;
+  outline: none;
+}
+
+.DropDown__Title:hover {
+  text-decoration: underline;
+}
+
 .DropDown__Menu {
   display: none;
   position: absolute;

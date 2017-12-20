@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NavMenu from './NavMenu';
+import NavItem from './NavItem';
 import Logo from './Logo';
 import Search from './Search';
 import Login from './Login';
@@ -35,11 +36,13 @@ export default class App extends Component {
         <header>
           <Logo/>
           <NavMenu arrowOnClick={this.headerMenuCategoryClick}>
+            <button className="DropDown__MenuItem">Все публикации</button>
             <button className="DropDown__MenuItem">Программирование</button>
             <button className="DropDown__MenuItem">Дизайн</button>
             <button className="DropDown__MenuItem">Администрирование</button>
             <button className="DropDown__MenuItem">Маркетинг</button>
           </NavMenu>
+          <NavItem title={'Пользователи'}/>
           <Search/>
           <Login userName={ this.jsonResources.jsonUserData.name } />
         </header>

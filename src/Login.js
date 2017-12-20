@@ -3,7 +3,7 @@ import './Login.css';
 import DropDown from './DropDown';
 import './DropDown.css';
 
-export default class Login extends React.Component {
+export default class Login extends Component {
 
   constructor(props) {
     super(props);

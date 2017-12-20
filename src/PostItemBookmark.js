@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PostItemBookmark.css';
 
-export default class PostItemBookmark extends React.Component {
+export default class PostItemBookmark extends Component {
 
   constructor(props) {
     super(props);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PostItemComments.css';
 
-export default class PostItemComments extends React.Component {
+export default class PostItemComments extends Component {
 
   constructor(props) {
     super(props);

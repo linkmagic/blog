@@ -9,7 +9,7 @@ import PostItemDateTime from './PostItemDateTime';
 import PostItemAuthor from './PostItemAuthor';
 import PostItemBookmark from './PostItemBookmark';
 
-export default class PostItem extends React.Component {
+export default class PostItem extends Component {
 
   constructor(props) {
     super(props);

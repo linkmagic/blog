@@ -3,7 +3,7 @@ import './NavMenu.css';
 
 import DropDown from './DropDown';
 
-export default class PostItem extends React.Component {
+export default class NavMenu extends Component {
 
   constructor(props) {
     super(props);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PostItemDateTime.css';
 
-export default class PostItemDateTime extends React.Component {
+export default class PostItemDateTime extends Component {
 
   constructor(props) {
     super(props);

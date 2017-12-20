@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RatingCounter.css';
 
-export default class RatingCounter extends React.Component {
+export default class RatingCounter extends Component {
 
   constructor(props) {
     super(props);

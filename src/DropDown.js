@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './DropDown.css';
 
-export default class DropDown extends React.Component {
+export default class DropDown extends Component {
 
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ export default class DropDown extends React.Component {
     let rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
     let x, y;
 
-    console.log(rect);
+    // console.log(rect);
 
     if ((rect.x + rect.width) > this.state.wndWidth) {
       x = rect.x - rect.width;
