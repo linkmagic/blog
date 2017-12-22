@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PostItemDateTime.css';
 
-export default class PostItemDateTime extends Component {
+export default class PostItemDateTime extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {}
   }
 
   render() {
     return (
       <p className="PostItemDate">
         <img className="PostItemDate__Img" src="img/post-item-calendar.png" alt="post-item-calendar"/>
-        {this.props.postItemDateTime}
+        { this.props.postItemDateTime }
       </p>
     );
   }

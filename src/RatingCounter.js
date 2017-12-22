@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './RatingCounter.css';
 
-export default class RatingCounter extends Component {
+export default class RatingCounter extends React.Component {
 
   constructor(props) {
     super(props);
@@ -32,11 +32,11 @@ export default class RatingCounter extends Component {
 
     return (
       <div className="RatingCounter">
-        <img className="RatingCounter__Btn" src="img/rating-down.png" alt="rating-down" onClick={this.clickDown} />
+        <img className="RatingCounter__Btn" src="img/rating-down.png" alt="rating-down" onClick={ this.clickDown } />
         <p className="RatingCounter__Value">
-          {postItemRating}
+          { postItemRating }
         </p>
-        <img className="RatingCounter__Btn" src="img/rating-up.png" alt="rating-up" onClick={this.clickUp}/>
+        <img className="RatingCounter__Btn" src="img/rating-up.png" alt="rating-up" onClick={ this.clickUp }/>
       </div>
     );
   }

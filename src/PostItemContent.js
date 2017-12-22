@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PostItemContent.css';
 
-export default class PostItemContent extends Component {
+export default class PostItemContent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export default class PostItemContent extends Component {
 
     return (
       <p className="PostItemContent">
-        {children}
+        { children }
       </p>
     );
   }

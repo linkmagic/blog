@@ -12,26 +12,14 @@ header {
   padding: 0;
 }
 
-/* header navigation panel */
-
-.white-space-top {
-  width: 100%;
-  height: 60px;
-}
-
-.content {
+.AppContent {
   width: 100%;
 }
 
-/* Blog post style */
-
-.posts-board {
+.AppContent__Container {
   display: block;
   padding: 10px 0 0 0;
-  outline: 1px dotted green;
 }
-
-/* Utils */
 
 .Component-show {
   display: block;

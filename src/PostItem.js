@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PostItem.css';
 
 import PostItemComments from './PostItemComments';
@@ -9,7 +9,7 @@ import PostItemDateTime from './PostItemDateTime';
 import PostItemAuthor from './PostItemAuthor';
 import PostItemBookmark from './PostItemBookmark';
 
-export default class PostItem extends Component {
+export default class PostItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -29,20 +29,20 @@ export default class PostItem extends Component {
 
       <div className="PostItem">
         
-        <PostItemTitle postItemTitle={postItemTitle}/>
+        <PostItemTitle postItemTitle={ postItemTitle }/>
           
         <div className="PostItem__Info">
-          <PostItemDateTime postItemDateTime={postItemDateTime} />
-          <PostItemAuthor postItemAuthor={postItemAuthor}/>
+          <PostItemDateTime postItemDateTime={ postItemDateTime } />
+          <PostItemAuthor postItemAuthor={ postItemAuthor }/>
         </div>
         
         <PostItemContent>
-          {children}
+          { children }
         </PostItemContent>
         
         <div className="PostItem__Info">
-          <PostItemComments postItemComments={postItemComments + " comments"}/>
-          <RatingCounter postItemRating={postItemRating}/>
+          <PostItemComments postItemComments={ postItemComments + " comments"}/>
+          <RatingCounter postItemRating={ postItemRating }/>
           <PostItemBookmark/>
         </div>
 

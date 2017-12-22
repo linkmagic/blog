@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NavMenu.css';
 
 import DropDown from './DropDown';
 
-export default class NavMenu extends Component {
+export default class NavMenu extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ export default class NavMenu extends Component {
     return (
       <nav className="NavMenu">
         <DropDown title="Все публикации">
-          {children}
+          { children }
         </DropDown>
       </nav>
     );
