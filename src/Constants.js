@@ -3,7 +3,7 @@ const CONTENT_USERS = 1;
 const CONTENT_SEARCH = 2;
 const CONTENT_PROFILE = 3;
 
-class Constants {
+export default class Constants {
 
   static get CONTENT_PUBLICATIONS() {
     return CONTENT_PUBLICATIONS;

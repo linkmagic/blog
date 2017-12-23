@@ -19,7 +19,8 @@ export default class NavItem extends React.Component {
   }
 
   render() {
-    console.log('state: ', this.state);
+    console.log('NavItem.state: ', this.state);
+
     return (
       <button onClick={ this.itemTitleClick } className="NavItem">{ this.props.title }</button>
     );

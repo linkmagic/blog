@@ -22,15 +22,14 @@ export default class App extends Component {
 
     this.jsonResources = new JSONResources();
 
-    this.publicationsClick = this.publicationsClick.bind(this);
-    this.usersClick = this.usersClick.bind(this);
-    this.searchClick = this.searchClick.bind(this);
-    this.profileClick = this.profileClick.bind(this);
+    this.displayContent = this.displayContent.bind(this);
   }
 
   displayContent() {
+    const { contentDisplay } = this.state;
+    console.log(contentDisplay);
 
-    switch(this.state.contentDisplay) {
+    switch(contentDisplay) {
 
       case Constants.CONTENT_PUBLICATIONS : {
         return (
@@ -81,28 +80,8 @@ export default class App extends Component {
     }
   }
 
-  publicationsClick() {
-    this.setState({
-      contentDisplay: Constants.CONTENT_PUBLICATIONS
-    });
-  };
-
-  usersClick() {
-    this.setState({
-      contentDisplay: Constants.CONTENT_USERS
-    });
-  };
-
-  searchClick() {
-    this.setState({
-      contentDisplay: Constants.CONTENT_SEARCH
-    });
-  };
-
-  profileClick() {
-    this.setState({
-      contentDisplay: Constants.CONTENT_PROFILE
-    });
+  testClick = () => {
+    console.log(this.state);
   };
 
   render() {
@@ -110,7 +89,8 @@ export default class App extends Component {
       <div>
         <header>
           <Logo/>
-          <NavMenu onClick={ this.publicationsClick } >
+          <button onClick={ this.testClick }>TEST</button>
+          <NavMenu displayAreaName={ Constants.CONTENT_PUBLICATIONS } >
             <button className="DropDown__MenuItem">Все публикации</button>
             <button className="DropDown__MenuItem">Программирование</button>
             <button className="DropDown__MenuItem">Дизайн</button>
