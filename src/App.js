@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './App.css';
 
 import HeaderTopSpace from './HeaderTopSpace';
@@ -11,7 +13,7 @@ import PostItem from './PostItem';
 import JSONResources from './JSONResources';
 import Constants from './Constants';
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -23,11 +25,15 @@ export default class App extends Component {
     this.jsonResources = new JSONResources();
 
     this.displayContent = this.displayContent.bind(this);
+    this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
+
+  headerMenuCategoryClick = () => {
+    document.getElementById("navPanelPublicBtnExtMenuContent").classList.toggle("Component-show");
+  };
 
   displayContent() {
     const { contentDisplay } = this.state;
-    console.log(contentDisplay);
 
     switch(contentDisplay) {
 
@@ -35,16 +41,16 @@ export default class App extends Component {
         return (
           <div className="AppContent__Container">
             {
-              this.jsonResources.jsonArticles.map( (item, index) => {
+              this.jsonResources.jsonArticles.map((item, index) => {
                 return (
-                  <PostItem postItemTitle={ item.title }
-                            postItemDateTime={ item.createdate }
-                            postItemAuthor={ item.userid }
-                            postItemComments={ item.comments }
-                            postItemRating={ item.rating }
-                            key={ index }
+                  <PostItem postItemTitle={item.title}
+                            postItemDateTime={item.createdate}
+                            postItemAuthor={item.userid}
+                            postItemComments={item.comments}
+                            postItemRating={item.rating}
+                            key={index}
                   >
-                    { item.body }
+                    {item.body}
                   </PostItem>
                 );
               })
@@ -80,33 +86,34 @@ export default class App extends Component {
     }
   }
 
-  testClick = () => {
-    console.log(this.state);
-  };
-
   render() {
     return (
       <div>
         <header>
           <Logo/>
-          <button onClick={ this.testClick }>TEST</button>
-          <NavMenu displayAreaName={ Constants.CONTENT_PUBLICATIONS } >
+          <NavMenu arrowOnClick={this.headerMenuCategoryClick}>
             <button className="DropDown__MenuItem">Все публикации</button>
             <button className="DropDown__MenuItem">Программирование</button>
             <button className="DropDown__MenuItem">Дизайн</button>
             <button className="DropDown__MenuItem">Администрирование</button>
             <button className="DropDown__MenuItem">Маркетинг</button>
           </NavMenu>
-          <NavItem displayAreaName={ Constants.CONTENT_USERS } title={ 'Пользователи' }/>
+          <NavItem title={'Пользователи'}/>
           <Search/>
-          <Login userName={ this.jsonResources.jsonUserData.name } />
+          <Login userName={this.jsonResources.jsonUserData.name} />
         </header>
         <div className="AppContent">
           <HeaderTopSpace/>
-          { this.displayContent() }
+          {this.displayContent()}
         </div>
       </div>
     );
   }
 }
 
+export default connect(
+  state => ({
+    testState: state
+  }),
+  dispatch => ({})
+) (App);
