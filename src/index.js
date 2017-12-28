@@ -9,29 +9,39 @@ import './index.css';
 import './DropDown.css';
 
 
-const initialState = [
-  'Smells like spirit',
-  'Wind of change'
-];
+const initialState = {
+  'CONTENT_DISPLAY': 'PUBLICATIONS'
+};
 
-function playlist(state = initialState, action) {
-  if (action.type === 'ADD_TRACK') {
-    return [
-      ...state,
-      action.payload
-    ];
+function uiAction(state = initialState, action) {
+  if (action.type === 'CONTENT_DISPLAY') {
+    return {
+      state,
+      'CONTENT_DISPLAY': action.value
+    };
   }
   return state;
 }
 
-const store = createStore(playlist);
+const store = createStore(
+    uiAction,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe( () => {
   console.log('subscribe', store.getState());
 });
 
-// store.dispatch( { type: 'ADD_TRACK', payload: 'Smells like spirit' } );
-// store.dispatch( { type: 'ADD_TRACK', payload: 'Wind of change' } );
+
+/*
+PUBLICATIONS
+USERS
+SEARCH
+PROFILE
+*/
+
+store.dispatch( { type: 'CONTENT_DISPLAY', value: 'PROFILE' } );
+
 
 
 (function () {
@@ -53,7 +63,7 @@ store.subscribe( () => {
 }) ();
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <App />
   </Provider>,
   document.getElementById('root')

@@ -13,7 +13,7 @@ import PostItem from './PostItem';
 import JSONResources from './JSONResources';
 import Constants from './Constants';
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -25,6 +25,7 @@ class App extends Component {
     this.jsonResources = new JSONResources();
 
     this.displayContent = this.displayContent.bind(this);
+
     this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
 
@@ -91,7 +92,7 @@ class App extends Component {
       <div>
         <header>
           <Logo/>
-          <NavMenu arrowOnClick={this.headerMenuCategoryClick}>
+          <NavMenu arrowOnClick={ this.headerMenuCategoryClick }>
             <button className="DropDown__MenuItem">Все публикации</button>
             <button className="DropDown__MenuItem">Программирование</button>
             <button className="DropDown__MenuItem">Дизайн</button>
@@ -100,20 +101,13 @@ class App extends Component {
           </NavMenu>
           <NavItem title={'Пользователи'}/>
           <Search/>
-          <Login userName={this.jsonResources.jsonUserData.name} />
+          <Login userName={ this.jsonResources.jsonUserData.name } />
         </header>
         <div className="AppContent">
           <HeaderTopSpace/>
-          {this.displayContent()}
+          { this.displayContent() }
         </div>
       </div>
     );
   }
 }
-
-export default connect(
-  state => ({
-    testState: state
-  }),
-  dispatch => ({})
-) (App);
