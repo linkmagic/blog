@@ -4,7 +4,6 @@ import './PostItem.css';
 import PostItemComments from './PostItemComments';
 import RatingCounter from './RatingCounter';
 import PostItemTitle from './PostItemTitle';
-import PostItemContent from './PostItemContent';
 import PostItemDateTime from './PostItemDateTime';
 import PostItemAuthor from './PostItemAuthor';
 import PostItemBookmark from './PostItemBookmark';
@@ -16,38 +15,29 @@ export default class PostItem extends React.Component {
   }
 
   render() {
-    const {
-      postItemTitle,
-      postItemDateTime,
-      postItemAuthor,
-      postItemComments,
-      postItemRating,
-      children
-    } = this.props;
+    const { article } = this.props;
 
     return (
-
       <div className="PostItem">
         
-        <PostItemTitle postItemTitle={ postItemTitle }/>
+        <PostItemTitle postItemTitle={article.title}/>
           
         <div className="PostItem__Info">
-          <PostItemDateTime postItemDateTime={ postItemDateTime } />
-          <PostItemAuthor postItemAuthor={ postItemAuthor }/>
+          <PostItemDateTime postItemDateTime={article.createdate} />
+          <PostItemAuthor postItemAuthor={article.userid}/>
         </div>
         
-        <PostItemContent>
-          { children }
-        </PostItemContent>
+        <div className="PostItem__Body">
+          {(article.body.length <= 500) ? article.body : article.body.slice(0, 500) + '...'}
+        </div>
         
         <div className="PostItem__Info">
-          <PostItemComments postItemComments={ postItemComments + " comments"}/>
-          <RatingCounter postItemRating={ postItemRating }/>
+          <PostItemComments postItemComments={article.comments.length + " comments"}/>
+          <RatingCounter postItemRating={article.rating}/>
           <PostItemBookmark/>
         </div>
 
       </div>
-
     );
   }
 
