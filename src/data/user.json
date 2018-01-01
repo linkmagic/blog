@@ -3,5 +3,9 @@
   "name": "Yevhen",
   "surname": "Sapsai",
   "birthdate": "1986.10.23",
-  "regdate": "2017.12.12"
+  "regdate": "2017.12.12",
+  "nickname": "linkmagic",
+  "email": "solo17@aol.com",
+  "rating": "700",
+  "avatar": "./data/id_20171216225100_avatar.png"
 }

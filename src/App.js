@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -13,6 +13,7 @@ import PostItem from './PostItem';
 import JSONResources from './JSONResources';
 import Constants from './Constants';
 import UserTable from './UserTable';
+import UserProfile from './UserProfile';
 
 export default class App extends Component {
 
@@ -20,7 +21,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      contentDisplay: Constants.CONTENT_PUBLICATIONS
+      contentDisplay: Constants.CONTENT_USER_PROFILE
     };
 
     this.jsonResources = new JSONResources();
@@ -49,22 +50,6 @@ export default class App extends Component {
               );
             })
           }
-          
-          {
-            /*this.jsonResources.jsonArticles.map((item, index) => {
-              return (
-                <PostItem postItemTitle={item.title}
-                          postItemDateTime={item.createdate}
-                          postItemAuthor={item.userid}
-                          postItemComments={item.comments}
-                          postItemRating={item.rating}
-                          key={index}
-                >
-                  {item.body}
-                </PostItem>
-              );
-            })*/
-          }
           </div>
         );
       }
@@ -85,10 +70,10 @@ export default class App extends Component {
         );
       }
 
-      case Constants.CONTENT_PROFILE : {
+      case Constants.CONTENT_USER_PROFILE : {
         return (
           <div className="AppContent__Container">
-            <h3>PROFILE</h3>
+            <UserProfile data={this.jsonResources.jsonUserData}/>
           </div>
         );
       }
