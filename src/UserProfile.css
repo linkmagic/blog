@@ -1,0 +1,80 @@
+span {
+  margin: 0;
+  padding: 0;
+}
+
+.UserProfile {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+}
+
+.UserProfile__Photo {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.UserProfile__Photo__Img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.UserProfile__Photo__Buttons {
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+.UserProfile__Photo__Button {
+  width: 60px;
+}
+
+.UserProfile__Details {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 45%;
+  height: 200px;
+}
+
+.UserProfile__Details__Tag {
+  font-style: italic;
+  color: #78909C;
+}
+
+.UserProfile__Details__Name,
+.UserProfile__Details__Surname,
+.UserProfile__Details__Birthdate,
+.UserProfile__Details__RegDate,
+.UserProfile__Details__Nickname,
+.UserProfile__Details__Email,
+.UserProfile__Details__Rating {
+  margin: 20px 10px 20px 20px;
+  padding: 0;
+  display: block;
+  font-family: arial;
+  font-size: 16px;
+}
+
+.PhotoPreview {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.PhotoPreview--show {
+  display: block;
+}
+
+.PhotoPreview__Img {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
