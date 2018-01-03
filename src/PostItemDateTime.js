@@ -3,15 +3,11 @@ import './PostItemDateTime.css';
 
 export default class PostItemDateTime extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <p className="PostItemDate">
         <img className="PostItemDate__Img" src="img/post-item-calendar.png" alt="post-item-calendar"/>
-        { this.props.postItemDateTime }
+        {this.props.postItemDateTime}
       </p>
     );
   }

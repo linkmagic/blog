@@ -4,10 +4,6 @@ import './UserTable.css';
 
 export default class UserTable extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { users } = this.props;
 
@@ -16,13 +12,13 @@ export default class UserTable extends Component {
         <table className="UserShort__Table">
           <thead className="UserShort__Table__Head">
             <tr>
-              <td className="UserShort__Table__cell">Имя</td>
-              <td className="UserShort__Table__cell">Фамилия</td>
-              <td className="UserShort__Table__cell">Дата рождения</td>
-              <td className="UserShort__Table__cell">Дата регистрации</td>
-              <td className="UserShort__Table__cell">Никнейм</td>
+              <td className="UserShort__Table__cell">Name</td>
+              <td className="UserShort__Table__cell">Surname</td>
+              <td className="UserShort__Table__cell">Birthdate</td>
+              <td className="UserShort__Table__cell">Registration</td>
+              <td className="UserShort__Table__cell">Nickname</td>
               <td className="UserShort__Table__cell">Email</td>
-              <td className="UserShort__Table__cell">Рейтинг</td>
+              <td className="UserShort__Table__cell">Rating</td>
             </tr>
           </thead>
           <tbody className="UserShort__Table__Body">

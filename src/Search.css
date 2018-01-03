@@ -1,6 +1,7 @@
 .Search {
   display: inline-block;
-  margin: 0 100px 0 100px;
+  float: right;
+  margin: 20px 50px 0 0;
 }
 
 .Search__Text {
@@ -10,10 +11,16 @@
   color: white;
 }
 
-.Search__TextImgSearch {
-  width: 16px;
-  height: 16px;
-  margin: 0 0 -3px -21px;
+.Search__ImgBtn {
+  width: 32px;
+  height: 32px;
+  margin: 0 0 -11px 3px;
+  cursor: pointer;
+}
+
+.Search__ImgBtn:hover {
+  background: rgba(0, 215, 254, 0.35);
+  outline: 1px solid rgba(0, 215, 254, 0.8);
 }
 
 .Search__Text::-webkit-input-placeholder {

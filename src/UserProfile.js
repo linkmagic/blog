@@ -13,10 +13,6 @@ function centeredUserPhoto() {
 
 export default class UserProfile extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   visiblePreviewPhoto =() => {
     var photoDiv = document.getElementById('idPhotoPreview');
     photoDiv.classList.toggle('PhotoPreview--show');
@@ -24,13 +20,15 @@ export default class UserProfile extends Component {
   }
 
   render() {
+    const { data } = this.props;
+
     return (
       <div className="UserProfile">
         <div className="UserProfile__Photo">
           <img className="UserProfile__Photo__Img" 
-               src="./data/id_20171216225100_avatar.png"
+               src={data.avatar}
                onClick={this.visiblePreviewPhoto}
-               alt="user photo"/>
+               alt="user avatar"/>
           <div className="UserProfile__Photo__Buttons">
             <button className="UserProfile__Photo__Button">Set</button>
             <button className="UserProfile__Photo__Button">Clear</button>
@@ -40,38 +38,38 @@ export default class UserProfile extends Component {
         <div className="UserProfile__Details">
           <p className="UserProfile__Details__Name">
             <span className="UserProfile__Details__Tag">Name:&nbsp;</span>
-            John
+            {data.name}
           </p>
           <p className="UserProfile__Details__Surname">
             <span className="UserProfile__Details__Tag">Surname:&nbsp;</span>
-            Dou
+            {data.surname}
           </p>
           <p className="UserProfile__Details__Birthdate">
             <span className="UserProfile__Details__Tag">Birthdate:&nbsp;</span>
-            1954.05.12
+            {data.birthdate}
           </p>
           <p className="UserProfile__Details__RegDate">
             <span className="UserProfile__Details__Tag">Registration:&nbsp;</span>
-            2017.12.12
+            {data.regdate}
           </p>
           <p className="UserProfile__Details__Nickname">
             <span className="UserProfile__Details__Tag">Nickname:&nbsp;</span>
-            JD
+            {data.nickname}
           </p>
           <p className="UserProfile__Details__Email">
             <span className="UserProfile__Details__Tag">E-mail:&nbsp;</span>
-            <a href="mailto:john.dou@gmail.com">john.dou@gmail.com</a>
+            <a href={'mailto:' + data.email}>{data.email}</a>
           </p>
           <p className="UserProfile__Details__Rating">
             <span className="UserProfile__Details__Tag">Rating:&nbsp;</span>
-            *****
+            {data.rating}
           </p>
         </div>
         <div id="idPhotoPreview" className="PhotoPreview" onClick={this.visiblePreviewPhoto}>
           <img id="idPhotoPreview__Img" 
                className="PhotoPreview__Img" 
-               src="./data/id_20171216225100_avatar.png" 
-               alt="user photo"
+               src={data.avatar}
+               alt="user avatar"
                title="Click to close"/>
         </div>
       </div>

@@ -9,6 +9,7 @@
   background-color: transparent;
   border: none;
   text-align: left;
+  cursor: pointer;
 }
 
 .NavItem:focus{

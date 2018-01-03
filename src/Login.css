@@ -1,7 +1,7 @@
 .Login {
   display: flex;
   float: right;
-  margin: 25px 15px 0 0;
+  margin: 23px 10px 0 0;
   padding: 0;
   color: #00D7FE;
 }
@@ -10,11 +10,22 @@
   margin: -5px 0 0 0;
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 
 .Login__Title {
   margin: 3px 15px 0 0;
   padding: 0;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.Login__Title:hover {
+  text-decoration: underline;
 }
 
 .header-panel-login-menu {

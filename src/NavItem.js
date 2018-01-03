@@ -1,16 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './NavItem.css';
 
-export default class NavItem extends React.Component {
+class NavItem extends React.Component {
 
-  constructor(props) {
-    super(props);
+  navItemOnClick = () => {
+    this.props.onDisplayContentChange(this.props.displayContentName);
   }
 
   render() {
     return (
-      <button className="NavItem">{ this.props.title }</button>
+      <button onClick={this.navItemOnClick} className="NavItem">{this.props.title}</button>
     );
   }
 
 }
+
+export default connect(
+
+  state => ({
+    displayState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (name) => {
+      dispatch({ type: 'DISPLAY_CONTENT', name })
+    }
+  })
+
+)(NavItem);

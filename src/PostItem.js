@@ -10,10 +10,6 @@ import PostItemBookmark from './PostItemBookmark';
 
 export default class PostItem extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { article } = this.props;
 

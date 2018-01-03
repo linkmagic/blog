@@ -7,7 +7,8 @@
     "regdate": "2017.12.12",
     "nickname": "linkmagic",
     "email": "solo17@aol.com",
-    "rating": "700"
+    "rating": "700",
+    "avatar": "./img/default_avatar_male.png"
   },
   {
     "userid": "20171216225100",
@@ -17,7 +18,8 @@
     "regdate": "2017.12.12",
     "nickname": "JQ",
     "email": "jon.q@email.com",
-    "rating": "530"
+    "rating": "530",
+    "avatar": ""
   },
   {
     "userid": "20171216232100",
@@ -27,7 +29,8 @@
     "regdate": "2015.02.17",
     "nickname": "Roadster",
     "email": "roadroot@gmail.com",
-    "rating": "458"
+    "rating": "458",
+    "avatar": ""
   },
   {
     "userid": "20171216232200",
@@ -37,6 +40,7 @@
     "regdate": "2016.10.10",
     "nickname": "Still",
     "email": "  roudy.rods@im.com",
-    "rating": "640"
+    "rating": "640",
+    "avatar": ""
   }
 ]

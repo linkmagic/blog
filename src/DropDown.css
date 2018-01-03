@@ -6,6 +6,7 @@
   background-color: transparent;
   border: none;
   text-align: left;
+  cursor: pointer;
 }
 
 .DropDown__Title:focus {

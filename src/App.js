@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -14,33 +14,30 @@ import JSONResources from './JSONResources';
 import Constants from './Constants';
 import UserTable from './UserTable';
 import UserProfile from './UserProfile';
+import SearchResult from './SearchResult';
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      contentDisplay: Constants.CONTENT_USER_PROFILE
+      contentDisplay: Constants.CONTENT_PUBLICATIONS
     };
 
     this.jsonResources = new JSONResources();
-
-    this.displayContent = this.displayContent.bind(this);
-
-    this.headerMenuCategoryClick = this.headerMenuCategoryClick.bind(this);
   }
 
   headerMenuCategoryClick = () => {
     document.getElementById("navPanelPublicBtnExtMenuContent").classList.toggle("Component-show");
   };
 
-  displayContent() {
-    const { contentDisplay } = this.state;
+  displayContent = () => {
+    const { displayContent } = this.props.displayState;
 
-    switch(contentDisplay) {
+    switch(displayContent) {
 
-      case Constants.CONTENT_PUBLICATIONS : {
+      case 'PUBLICATIONS' : {
         return (
           <div className="AppContent__Container">
           {
@@ -54,7 +51,7 @@ export default class App extends Component {
         );
       }
 
-      case Constants.CONTENT_USERS : {
+      case 'USERS' : {
         return (
           <div className="AppContent__Container">
             <UserTable users={this.jsonResources.jsonUsers}/>
@@ -62,21 +59,23 @@ export default class App extends Component {
         );
       }
 
-      case Constants.CONTENT_SEARCH : {
+      case 'SEARCH' : {
         return (
           <div className="AppContent__Container">
-            <h3>SEARCH</h3>
+            <SearchResult/>
           </div>
         );
       }
 
-      case Constants.CONTENT_USER_PROFILE : {
+      case 'USER_PROFILE' : {
         return (
           <div className="AppContent__Container">
             <UserProfile data={this.jsonResources.jsonUserData}/>
           </div>
         );
       }
+
+      default: return;
 
     }
   }
@@ -86,16 +85,15 @@ export default class App extends Component {
       <div>
         <header>
           <Logo/>
-          <NavMenu arrowOnClick={this.headerMenuCategoryClick}>
-            <button className="DropDown__MenuItem">Все публикации</button>
-            <button className="DropDown__MenuItem">Программирование</button>
-            <button className="DropDown__MenuItem">Дизайн</button>
-            <button className="DropDown__MenuItem">Администрирование</button>
-            <button className="DropDown__MenuItem">Маркетинг</button>
+          <NavMenu menuTitle={'All publications'} arrowOnClick={this.headerMenuCategoryClick}>
+            <button className="DropDown__MenuItem">Programming</button>
+            <button className="DropDown__MenuItem">Design</button>
+            <button className="DropDown__MenuItem">Administration</button>
+            <button className="DropDown__MenuItem">Marketing</button>
           </NavMenu>
-          <NavItem title={'Пользователи'}/>
-          <Search/>
+          <NavItem displayContentName={'USERS'} title={'All Users'}/>
           <Login userName={this.jsonResources.jsonUserData.name}/>
+          <Search/>
         </header>
         <div className="AppContent">
           <HeaderTopSpace/>
@@ -105,3 +103,17 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(
+  
+  state => ({
+    displayState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (name) => {
+      dispatch({ type: 'DISPLAY_CONTENT', name});
+    }
+  })
+
+)(App);
