@@ -1,28 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+
 import './DropDown.css';
 
-export default class DropDown extends React.Component {
+class DropDown extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      isOpen: false,
-      wndWidth: window.innerWidth,
-      wndHeight: window.innerHeight,
-      stylePos: {
-        position: 'absolute',
-        left: 0,
-        top: 0
-      }
+      isOpen: false
     };
 
   }
 
   open = () => {
     this.setState({ isOpen: true });
-    console.log(this.state);
   };
 
   close = () => {
@@ -31,39 +24,13 @@ export default class DropDown extends React.Component {
     }
   };
 
-  componentDidMount() {
-    let rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
-    let x, y;
-
-    // console.log(rect);
-
-    if ((rect.x + rect.width) > this.state.wndWidth) {
-      x = rect.x - rect.width;
-    } else {
-      x = rect.x;
-    }
-
-    if ((rect.y + rect.height) > this.state.wndHeight) {
-      y = rect.y - rect.height;
-    } else {
-      y = rect.y;
-    }
-
-    this.setState({
-      stylePos: {
-        position: 'absolute',
-        left: x + 'px',
-        top: y + 'px'
-      }
-    });
-  }
+  titleOnClick = () => {
+    this.props.onDisplayContentChange('PUBLICATIONS');
+  };
 
   componentDidUpdate() {
     if (this.state.isOpen) {
       document.addEventListener('click', this.close);
-      // let ddMenu = document.getElementById('idDropDownMenu');
-      // ddMenu.setAttribute('style', 'left:100px');
-      // console.log(ddMenu);
     } else {
       document.removeEventListener('click', this.close);
     }
@@ -79,17 +46,29 @@ export default class DropDown extends React.Component {
 
     return (
       <div id="idDropDownMenu">
-        <button className="DropDown__Title">{title}</button>
-
+        <button onClick={this.titleOnClick} className="DropDown__Title">{title}</button>
         <div onClick={this.open} className="DropDown__ArrowBtn">
           <img className="DropDown__ArrowBtnImg" src="img/nav-arrow-down.png" alt="nav-arrow-dowm"/>
-          <div id="navPanelPublicBtnExtMenuContent" className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
+          <div className={`DropDown__Menu ${isOpen ? 'Component-show' : ''}`}>
             {children}
           </div>
         </div>
-
       </div>
     );
   }
 
 }
+
+export default connect(
+
+  state => ({
+    displayState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (name) => {
+      dispatch({ type: 'DISPLAY_CONTENT', name});
+    }
+  })
+
+)(DropDown);

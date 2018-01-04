@@ -61,3 +61,7 @@
 .DropDown__MenuItem:hover {
   color: #00D7FE;
 }
+
+.Component-show {
+  display: block;
+}

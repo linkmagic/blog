@@ -11,26 +11,19 @@ import Search from './Search';
 import Login from './Login';
 import PostItem from './PostItem';
 import JSONResources from './JSONResources';
-import Constants from './Constants';
 import UserTable from './UserTable';
 import UserProfile from './UserProfile';
 import SearchResult from './SearchResult';
+import PanelHorizSpace from './PanelHorizSpace';
+import SiteCopyrightLabel from './SiteCopyrightLabel';
+import ItemSocialNetwork from './ItemSocialNetwork';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      contentDisplay: Constants.CONTENT_PUBLICATIONS
-    };
-
     this.jsonResources = new JSONResources();
   }
-
-  headerMenuCategoryClick = () => {
-    document.getElementById("navPanelPublicBtnExtMenuContent").classList.toggle("Component-show");
-  };
 
   displayContent = () => {
     const { displayContent } = this.props.displayState;
@@ -76,29 +69,50 @@ class App extends Component {
       }
 
       default: return;
-
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <header>
           <Logo/>
-          <NavMenu menuTitle={'All publications'} arrowOnClick={this.headerMenuCategoryClick}>
+          <NavMenu menuTitle={'All publications'} >
             <button className="DropDown__MenuItem">Programming</button>
             <button className="DropDown__MenuItem">Design</button>
             <button className="DropDown__MenuItem">Administration</button>
             <button className="DropDown__MenuItem">Marketing</button>
           </NavMenu>
           <NavItem displayContentName={'USERS'} title={'All Users'}/>
-          <Login userName={this.jsonResources.jsonUserData.name}/>
+          <Login userData={this.jsonResources.jsonUserData}/>
           <Search/>
         </header>
         <div className="AppContent">
           <HeaderTopSpace/>
           {this.displayContent()}
         </div>
+        <footer>
+          <div>
+            <Logo/>
+            <PanelHorizSpace spaceWidth={10}/>
+            <SiteCopyrightLabel beginYearValue={2017}/>
+          </div>
+          <div>
+            <NavItem displayContentName={'ABOUT'} title={'About'}/>
+            <PanelHorizSpace spaceWidth={25}/>
+            <NavItem displayContentName={'SUPPORT'} title={'Support'}/>
+          </div>
+          <div>
+            <ItemSocialNetwork iconName={'f'}/>
+            <PanelHorizSpace spaceWidth={15}/>
+            <ItemSocialNetwork iconName={'t'}/>
+            <PanelHorizSpace spaceWidth={15}/>
+            <ItemSocialNetwork iconName={'l'}/>
+            <PanelHorizSpace spaceWidth={15}/>
+            <ItemSocialNetwork iconName={'g'}/>
+            <PanelHorizSpace spaceWidth={15}/>
+          </div>
+        </footer>
       </div>
     );
   }

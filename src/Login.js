@@ -10,15 +10,15 @@ class Login extends Component {
 
   loginOnClick = () => {
     this.props.onDisplayContentChange('USER_PROFILE');
-  }
+  };
 
   render() {
-    const { userName } = this.props;
-
+    const { userData } = this.props;
+    let userName = userData.name;
     return (
       <div className="Login">
         <p onClick={this.loginOnClick} className="Login__Title">{userName}</p>
-        <img onClick={this.loginOnClick} className="Login__Avatar" src="img/user.png" alt="user"/>
+        <img onClick={this.loginOnClick} className="Login__Avatar" src={userData.avatar} alt="user"/>
         <DropDown>
           <p><button className="DropDown__MenuItem">Выход</button></p>
           <p><button className="DropDown__MenuItem">Настройки</button></p>

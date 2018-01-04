@@ -1,0 +1,13 @@
+.ItemSocialNetwork {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.ItemSocialNetwork__Img {
+  filter: grayscale(90%);
+}
+
+.ItemSocialNetwork__Img:hover {
+  filter: none;
+}

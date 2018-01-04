@@ -1,21 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 
 import './NavMenu.css';
-
 import DropDown from './DropDown';
 
-class NavMenu extends React.Component {
-
-  menuOnClick = () => {
-    this.props.onDisplayContentChange('PUBLICATIONS');
-  }
+export default class NavMenu extends Component {
 
   render() {
     const { children, menuTitle } = this.props;
 
     return (
-      <nav onClick={this.menuOnClick} className="NavMenu">
+      <nav className="NavMenu">
         <DropDown title={menuTitle}>
           {children}
         </DropDown>
@@ -24,17 +18,3 @@ class NavMenu extends React.Component {
   }
 
 }
-
-export default connect(
-  
-  state => ({
-    displayState: state
-  }),
-
-  dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
-    }
-  })
-
-)(NavMenu);

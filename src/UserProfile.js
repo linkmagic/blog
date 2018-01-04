@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './UserProfile.css'
 
 function centeredUserPhoto() {
-  var photoDiv = document.getElementById('idPhotoPreview');
-  var photoImg = document.getElementById('idPhotoPreview__Img');
+  let photoDiv = document.getElementById('idPhotoPreview');
+  let photoImg = document.getElementById('idPhotoPreview__Img');
 
   photoImg.style.width = photoDiv.offsetHeight - (photoDiv.offsetHeight * 0.1) + 'px';
   photoImg.style.left = Math.round((photoDiv.offsetWidth / 2) - (photoImg.offsetWidth / 2)) + 'px';
@@ -14,10 +14,10 @@ function centeredUserPhoto() {
 export default class UserProfile extends Component {
 
   visiblePreviewPhoto =() => {
-    var photoDiv = document.getElementById('idPhotoPreview');
+    let photoDiv = document.getElementById('idPhotoPreview');
     photoDiv.classList.toggle('PhotoPreview--show');
     centeredUserPhoto();
-  }
+  };
 
   render() {
     const { data } = this.props;
@@ -64,6 +64,10 @@ export default class UserProfile extends Component {
             <span className="UserProfile__Details__Tag">Rating:&nbsp;</span>
             {data.rating}
           </p>
+          <p className="UserProfile__Details__Publications">
+            <span className="UserProfile__Details__Tag">Publications:&nbsp;</span>
+            {data.publications}
+          </p>
         </div>
         <div id="idPhotoPreview" className="PhotoPreview" onClick={this.visiblePreviewPhoto}>
           <img id="idPhotoPreview__Img" 
@@ -73,7 +77,6 @@ export default class UserProfile extends Component {
                title="Click to close"/>
         </div>
       </div>
-
     );
   }
 

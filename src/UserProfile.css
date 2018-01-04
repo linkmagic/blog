@@ -32,6 +32,7 @@ span {
 
 .UserProfile__Photo__Button {
   width: 60px;
+  height: 25px;
 }
 
 .UserProfile__Details {
@@ -52,7 +53,8 @@ span {
 .UserProfile__Details__RegDate,
 .UserProfile__Details__Nickname,
 .UserProfile__Details__Email,
-.UserProfile__Details__Rating {
+.UserProfile__Details__Rating,
+.UserProfile__Details__Publications {
   margin: 20px 10px 20px 20px;
   padding: 0;
   display: block;

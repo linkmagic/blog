@@ -7,7 +7,7 @@ class NavItem extends React.Component {
 
   navItemOnClick = () => {
     this.props.onDisplayContentChange(this.props.displayContentName);
-  }
+  };
 
   render() {
     return (
