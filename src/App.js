@@ -17,6 +17,7 @@ import SearchResult from './SearchResult';
 import PanelHorizSpace from './PanelHorizSpace';
 import SiteCopyrightLabel from './SiteCopyrightLabel';
 import ItemSocialNetwork from './ItemSocialNetwork';
+import SupportForm from './SupportForm';
 
 class App extends Component {
 
@@ -68,6 +69,14 @@ class App extends Component {
         );
       }
 
+      case 'SUPPORT' : {
+        return (
+            <div className="AppContent__Container">
+              <SupportForm/>
+            </div>
+        );
+      }
+
       default: return;
     }
   };
@@ -99,17 +108,17 @@ class App extends Component {
           </div>
           <div>
             <NavItem displayContentName={'ABOUT'} title={'About'}/>
-            <PanelHorizSpace spaceWidth={25}/>
+            <PanelHorizSpace spaceWidth={50}/>
             <NavItem displayContentName={'SUPPORT'} title={'Support'}/>
           </div>
           <div>
-            <ItemSocialNetwork iconName={'f'}/>
+            <ItemSocialNetwork iconName={'f'} sitePath={'https://www.facebook.com/'}/>
             <PanelHorizSpace spaceWidth={15}/>
-            <ItemSocialNetwork iconName={'t'}/>
+            <ItemSocialNetwork iconName={'t'} sitePath={'https://twitter.com/'}/>
             <PanelHorizSpace spaceWidth={15}/>
-            <ItemSocialNetwork iconName={'l'}/>
+            <ItemSocialNetwork iconName={'l'} sitePath={'https://www.linkedin.com'}/>
             <PanelHorizSpace spaceWidth={15}/>
-            <ItemSocialNetwork iconName={'g'}/>
+            <ItemSocialNetwork iconName={'g'} sitePath={'https://plus.google.com/'}/>
             <PanelHorizSpace spaceWidth={15}/>
           </div>
         </footer>

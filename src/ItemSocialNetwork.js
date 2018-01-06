@@ -5,7 +5,7 @@ import './ItemSocialNetwork.css';
 export default class ItemSocialNetwork extends Component {
 
   render() {
-    const { iconName } = this.props;
+    const { iconName, sitePath } = this.props;
     let iconPath;
 
     switch(iconName) {
@@ -32,7 +32,9 @@ export default class ItemSocialNetwork extends Component {
 
     return (
       <div className="ItemSocialNetwork">
-        <img className="ItemSocialNetwork__Img" src={iconPath} alt=""/>
+        <a href={sitePath} target="_blank">
+          <img className="ItemSocialNetwork__Img" src={iconPath} alt=""/>
+        </a>
       </div>
     );
   }

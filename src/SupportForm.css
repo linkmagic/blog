@@ -1,0 +1,51 @@
+.SupportForm__Container,
+.SupportForm,
+.SupportForm__QuestionThemeSelect,
+.SupportForm__EmailText,
+.SupportForm__MessageText,
+.SupportForm__SubmitButton,
+.SupportForm__QuestionThemeLabel,
+.SupportForm__EmailLabel,
+.SupportForm__MessageLabel {
+  display: block;
+}
+
+.SupportForm__Container {
+  margin: 10px;
+}
+
+.SupportForm__QuestionThemeLabel,
+.SupportForm__EmailLabel,
+.SupportForm__MessageLabel {
+  width: 100%;
+  margin: 0 0 5px 0;
+  color: rgb(0,0,0);
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.SupportForm__QuestionThemeSelect {
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.SupportForm__EmailText {
+  width: calc(100% - 3px);
+  margin: 0 0 20px 0;
+}
+
+.SupportForm__MessageText {
+  width: calc(100% - 5px);
+  height: 100px;
+  margin: 0 0 30px 0;
+}
+
+.SupportForm__SubmitAgreeCheckbox {
+  display: inline-block;
+  margin: 0 5px 30px 0;
+}
+
+.SupportForm__SubmitButton {
+  width: 60px;
+  height: 25px;
+}
