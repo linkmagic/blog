@@ -5,7 +5,7 @@
     "surname": "Sapsai",
     "birthdate": "1986.10.23",
     "regdate": "2017.12.12",
-    "nickname": "linkmagic",
+    "nickname": "solo17",
     "email": "solo17@aol.com",
     "rating": "700",
     "avatar": "./img/default_avatar_male.png"
@@ -41,6 +41,39 @@
     "nickname": "Still",
     "email": "  roudy.rods@im.com",
     "rating": "640",
+    "avatar": ""
+  },
+  {
+    "userid": "20180101121720",
+    "name": "Ivan",
+    "surname": "Kozakov",
+    "birthdate": "1977.12.01",
+    "regdate": "2018.01.01",
+    "nickname": "Ikazov",
+    "email": "ivan.kazakov@gmail.com",
+    "rating": "540",
+    "avatar": ""
+  },
+  {
+    "userid": "20180102080600",
+    "name": "Stepan",
+    "surname": "Petrov",
+    "birthdate": "1988.10.17",
+    "regdate": "2018.01.02",
+    "nickname": "Petka",
+    "email": "stepka.best@microsoft.com",
+    "rating": "860",
+    "avatar": ""
+  },
+  {
+    "userid": "20180104175504",
+    "name": "Alexander",
+    "surname": "Sokorenko",
+    "birthdate": "1982.05.16",
+    "regdate": "2018.01.04",
+    "nickname": "Eagle",
+    "email": "sokorenko.alex@gmail.com",
+    "rating": "710",
     "avatar": ""
   }
 ]

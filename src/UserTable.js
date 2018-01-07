@@ -9,6 +9,11 @@ export default class UserTable extends Component {
 
     return (
       <div className="UserShort">
+        <div className="UserShort__Search">
+          <label className="UserShort__SearchInputLabel">Search:</label>
+          <input className="UserShort__SearchInputText" type="text" ref={ (input) => { this.searchInputText = input; } }
+            placeholder="Name, Surname, Birthdate, Nickname, Email, etc"/>
+        </div>
         <table className="UserShort__Table">
           <thead className="UserShort__Table__Head">
             <tr>

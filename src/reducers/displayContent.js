@@ -9,7 +9,7 @@
   ];
 */
 
-const initialState = 'PUBLICATIONS';
+const initialState = 'USERS';
 
 export default function displayContent(state = initialState, action) {
   if (action.type === 'DISPLAY_CONTENT') {
