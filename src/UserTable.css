@@ -8,6 +8,18 @@
   display: block;
 }
 
+.UserShort__SearchButtonImage {
+  width: 32px;
+  height: 32px;
+  margin: 0 0 -11px 3px;
+  cursor: pointer;
+}
+
+.UserShort__SearchButtonImage:hover {
+  background: rgba(0, 215, 254, 0.35);
+  outline: 1px solid rgba(0, 215, 254, 0.8);
+}
+
 .UserShort__SearchInputLabel {
   display: inline-block;
   margin: 0 5px 0 0;
