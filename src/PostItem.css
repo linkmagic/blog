@@ -5,6 +5,8 @@
   width: calc(100% - 40px);
   outline: 1px solid #eaeaea;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
 }
 
 .PostItem__Info {

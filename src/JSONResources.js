@@ -1,4 +1,4 @@
-export default class JSONResources{
+export default class JSONResources {
 
   constructor() {
     this.jsonUserData = require('./data/user.json');

@@ -6,6 +6,7 @@
 
 .ItemSocialNetwork__Img {
   filter: grayscale(90%);
+  -webkit-filter: grayscale(90%);
 }
 
 .ItemSocialNetwork__Img:hover {
