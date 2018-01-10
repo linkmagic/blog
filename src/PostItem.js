@@ -1,26 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './PostItem.css';
 
 import PostItemComments from './PostItemComments';
 import RatingCounter from './RatingCounter';
-import PostItemTitle from './PostItemTitle';
 import PostItemDateTime from './PostItemDateTime';
+import PostItemArticleGroup from './PostItemArticleGroup';
 import PostItemAuthor from './PostItemAuthor';
 import PostItemBookmark from './PostItemBookmark';
 
-export default class PostItem extends React.Component {
+class PostItem extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      articleId: this.props.article.articleid,
+      articleGroupId: this.props.article.groupid,
+      userId: this.props.article.userid
+    };
+  }
+
+  titleOnClick = () => {
+    console.log(this.state.articleId);
+    this.props.onDisplayContentChange('OPEN_ARTICLE');
+  };
+
+  articleGroupOnClick = () => {
+    console.log(this.state.articleGroupId);
+    this.props.onDisplayContentChange('OPEN_ARTICLES_BY_GROUP');
+  };
 
   render() {
-    const { article } = this.props;
+    const {
+      article,
+      authorNickName,
+      articleGroupName
+    } = this.props;
 
     return (
       <div className="PostItem">
-        
-        <PostItemTitle postItemTitle={article.title}/>
+
+        <h3 className="PostItem__Title">
+          <button onClick={this.titleOnClick} className="PostItem__Title__Button">
+            {article.title}
+          </button>
+        </h3>
           
         <div className="PostItem__Info">
           <PostItemDateTime postItemDateTime={article.createdate} />
-          <PostItemAuthor postItemAuthor={article.userid}/>
+          <PostItemArticleGroup articleGroupName={articleGroupName}
+                                articleGroupId={this.state.articleGroupId} />
+          <PostItemAuthor authorNickName={authorNickName} authorUserId={this.state.userId}/>
         </div>
         
         <div className="PostItem__Body">
@@ -38,3 +70,17 @@ export default class PostItem extends React.Component {
   }
 
 }
+
+export default connect(
+
+  state => ({
+    displayState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (name) => {
+      dispatch({ type: 'DISPLAY_CONTENT', name});
+    }
+  })
+
+)(PostItem);

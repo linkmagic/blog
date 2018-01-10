@@ -1,15 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './PostItemAuthor.css';
 
-export default class PostItemAuthor extends React.Component {
+class PostItemAuthor extends Component {
+
+  onClick = () => {
+    this.props.onDisplayContentChange('OPEN_OTHER_USER_PROFILE');
+  };
 
   render() {
+    const { authorNickName } = this.props;
+
     return (
-      <a href="" className="PostItemAuthor">
-        <img className="PostItemAuthor__Img" src="img/post-item-author.png" alt="post-item-author"/>
-        {this.props.postItemAuthor}
-      </a>
+      <button onClick={this.onClick} className="PostItemAuthor">
+        <img className="PostItemAuthor__Img"
+             src="img/post-item-author.png" alt="post-item-author"
+        />
+        {authorNickName}
+      </button>
     );
   }
 
 }
+
+export default connect(
+
+  state => ({
+    displayState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (name) => {
+      dispatch({ type: 'DISPLAY_CONTENT', name});
+    }
+  })
+
+)(PostItemAuthor);

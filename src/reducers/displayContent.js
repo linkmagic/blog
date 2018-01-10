@@ -5,14 +5,18 @@
     'SEARCH',
     'USER_PROFILE',
     'SUPPORT',
-    'ABOUT'
+    'ABOUT',
+    'OPEN_ARTICLE',
+    'OPEN_ARTICLES_BY_GROUP',
+    'OPEN_OTHER_USER_PROFILE'
   ];
 */
 
-const initialState = 'USERS';
+const initialState = 'PUBLICATIONS';
 
-export default function displayContent(state = initialState, action) {
+export default function displayContent(state = initialState, action, value) {
   if (action.type === 'DISPLAY_CONTENT') {
+    // console.log(action);
     return action.name;
   }
   return state;

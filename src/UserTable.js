@@ -6,7 +6,10 @@ export default class UserTable extends Component {
 
   constructor(props) {
     super(props);
-    this.userList = this.props.users;
+
+    this.state = {
+      users: this.props.users
+    };
   }
 
   applyFilter = (pattern, users) => {
@@ -32,26 +35,24 @@ export default class UserTable extends Component {
 
   searchInputOnKeyPress = (e) => {
     if (e.key === 'Enter') {
-      if (this.searchInputText.value.length <= 0) {
-        console.log('display all users');
-        this.userList = this.props.users;
-      } else {
-        console.log('display filtered users');
-        this.userList = this.applyFilter(this.searchInputText.value, this.props.users);
-      }
       this.searchButtonImageOnClick();
-      this.render();
     }
   };
 
   searchButtonImageOnClick = () => {
-    // console.log('searchButtonImageOnClick');
+    if (this.searchInputText.value.length <= 0) {
+      this.setState({
+        users: this.props.users
+      });
+    } else {
+      this.setState({
+        users: this.applyFilter(this.searchInputText.value, this.props.users)
+      });
+    }
   };
 
   render() {
-    // const { users } = this.props;
-    let users = this.userList;
-    console.log(users);
+    const { users } = this.state;
 
     return (
       <div className="UserShort">

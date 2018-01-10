@@ -24,3 +24,39 @@
   margin: 10px;
   padding: 0;
 }
+
+.PostItem__Title {
+  font-family: Arial;
+  font-size: 18px;
+  margin: 10px;
+  padding: 0;
+}
+
+.PostItem__Title__Button,
+.PostItem__Info__GroupButton {
+  width: auto;
+  text-align: left;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 0;
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+.PostItem__Title__Button:hover,
+.PostItem__Info__GroupButton:hover {
+  text-decoration: underline;
+}
+
+.PostItem__Info__GroupButton {
+  margin: 0 0 0 20px;
+  font-size: 15px;
+}
+
+.PostItem__Author__Avatar {
+  width: 16px;
+  height: 16px;
+  margin: 0 3px -3px 0;
+}

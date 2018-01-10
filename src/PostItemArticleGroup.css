@@ -1,5 +1,4 @@
-.PostItemAuthor {
-  display: inline-block;
+.ArticleGroup {
   width: auto;
   text-align: left;
   cursor: pointer;
@@ -12,12 +11,6 @@
   margin: 0 0 0 20px;
 }
 
-.PostItemAuthor:hover {
+.ArticleGroup:hover {
   text-decoration: underline;
-}
-
-.PostItemAuthor__Img {
-  width: 16px;
-  height: 16px;
-  margin: 0 3px -3px 0;
 }

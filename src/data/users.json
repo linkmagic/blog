@@ -1,6 +1,6 @@
 [
   {
-    "id": "20171216225100",
+    "userid": "20171212221055",
     "name": "Yevhen",
     "surname": "Sapsai",
     "birthdate": "1986.10.23",
@@ -11,7 +11,7 @@
     "avatar": "./img/default_avatar_male.png"
   },
   {
-    "userid": "20171216225100",
+    "userid": "20171212155531",
     "name": "John",
     "surname": "Q.",
     "birthdate": "1988.12.12",
@@ -22,7 +22,7 @@
     "avatar": ""
   },
   {
-    "userid": "20171216232100",
+    "userid": "20150217121722",
     "name": "Andy",
     "surname": "R.",
     "birthdate": "1976.10.19",
@@ -33,7 +33,7 @@
     "avatar": ""
   },
   {
-    "userid": "20171216232200",
+    "userid": "20161010145133",
     "name": "Roudy",
     "surname": "Rods",
     "birthdate": "1979.11.03",

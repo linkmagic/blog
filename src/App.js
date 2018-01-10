@@ -26,6 +26,30 @@ class App extends Component {
     this.jsonResources = new JSONResources();
   }
 
+  getAuthorNickname = (id) => {
+    let nickName = 'Unregistered';
+
+    for (let i = 0; i < this.jsonResources.jsonUsers.length; i++) {
+      if (id === this.jsonResources.jsonUsers[i].userid) {
+        return this.jsonResources.jsonUsers[i].nickname;
+      }
+    }
+
+    return nickName;
+  };
+
+  getArticleGroupName = (id) => {
+    let groupName = 'Unnamed';
+
+    for (let i = 0; i < this.jsonResources.jsonArticleGroups.length; i++) {
+      if (id === this.jsonResources.jsonArticleGroups[i].groupid) {
+        return this.jsonResources.jsonArticleGroups[i].name;
+      }
+    }
+
+    return groupName;
+  };
+
   displayContent = () => {
     const { displayContent } = this.props.displayState;
 
@@ -37,7 +61,11 @@ class App extends Component {
           {
             this.jsonResources.jsonArticles.map((article, index) => {
               return (
-                <PostItem key={index} article={article}/>
+                <PostItem key={index}
+                          authorNickName={this.getAuthorNickname(article.userid)}
+                          articleGroupName={this.getArticleGroupName(article.groupid)}
+                          article={article}
+                />
               );
             })
           }
@@ -74,6 +102,38 @@ class App extends Component {
             <div className="AppContent__Container">
               <SupportForm/>
             </div>
+        );
+      }
+
+      case 'ABOUT' : {
+        return (
+          <div className="AppContent__Container">
+            ABOUT...
+          </div>
+        );
+      }
+
+      case 'OPEN_ARTICLE' : {
+        return (
+          <div className="AppContent__Container">
+            ARTICLE DETAILS...
+          </div>
+        );
+      }
+
+      case 'OPEN_ARTICLES_BY_GROUP' : {
+        return (
+          <div className="AppContent__Container">
+            ARTICLES BY GROUP...
+          </div>
+        );
+      }
+
+      case 'OPEN_OTHER_USER_PROFILE' : {
+        return (
+          <div className="AppContent__Container">
+            OTHER USER PROFILE...
+          </div>
         );
       }
 
