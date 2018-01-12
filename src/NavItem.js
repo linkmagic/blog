@@ -6,7 +6,10 @@ import './NavItem.css';
 class NavItem extends React.Component {
 
   navItemOnClick = () => {
-    this.props.onDisplayContentChange(this.props.displayContentName);
+    this.props.onDisplayContentChange({
+      name: this.props.displayContentName,
+      value: 0
+    });
   };
 
   render() {
@@ -24,8 +27,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name })
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action })
     }
   })
 

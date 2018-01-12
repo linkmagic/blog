@@ -6,13 +6,10 @@ import './PostItemArticleGroup.css';
 class PostItemArticleGroup extends Component {
 
   onClick = () => {
-    this.props.onDisplayContentChange('OPEN_ARTICLES_BY_GROUP');
-
-    // this.props.onDisplayContentChange({
-    //   action: 'OPEN_ARTICLES_BY_GROUP',
-    //   value: this.props.articleGroupId
-    // });
-
+    this.props.onDisplayContentChange({
+      name: 'OPEN_ARTICLES_BY_GROUP',
+      value: this.props.articleGroupId
+    });
   };
 
   render() {
@@ -34,8 +31,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 

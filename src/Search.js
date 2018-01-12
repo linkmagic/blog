@@ -6,7 +6,10 @@ import './Search.css';
 class Search extends Component {
 
   searchOnClick = () => {
-    this.props.onDisplayContentChange('SEARCH');
+    this.props.onDisplayContentChange({
+      name: 'SEARCH',
+      value: 0
+    });
 
     // call search api
     // ...
@@ -47,8 +50,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name })
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action})
     }
   })
 

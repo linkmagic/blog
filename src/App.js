@@ -53,7 +53,7 @@ class App extends Component {
   displayContent = () => {
     const { displayContent } = this.props.displayState;
 
-    switch(displayContent) {
+    switch(displayContent.name) {
 
       case 'PUBLICATIONS' : {
         return (
@@ -61,10 +61,10 @@ class App extends Component {
           {
             this.jsonResources.jsonArticles.map((article, index) => {
               return (
-                <PostItem key={index}
+                <PostItem article={article}
                           authorNickName={this.getAuthorNickname(article.userid)}
                           articleGroupName={this.getArticleGroupName(article.groupid)}
-                          article={article}
+                          key={index}
                 />
               );
             })
@@ -117,6 +117,7 @@ class App extends Component {
         return (
           <div className="AppContent__Container">
             ARTICLE DETAILS...
+            <p>article ID: {displayContent.value}</p>
           </div>
         );
       }
@@ -125,6 +126,7 @@ class App extends Component {
         return (
           <div className="AppContent__Container">
             ARTICLES BY GROUP...
+            <p>article group ID: {displayContent.value}</p>
           </div>
         );
       }
@@ -133,6 +135,7 @@ class App extends Component {
         return (
           <div className="AppContent__Container">
             OTHER USER PROFILE...
+            <p>User ID: {displayContent.value}</p>
           </div>
         );
       }
@@ -194,8 +197,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 

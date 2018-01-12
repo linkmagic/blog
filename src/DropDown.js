@@ -25,7 +25,10 @@ class DropDown extends React.Component {
   };
 
   titleOnClick = () => {
-    this.props.onDisplayContentChange('PUBLICATIONS');
+    this.props.onDisplayContentChange({
+      name: 'PUBLICATIONS',
+      value: 0
+    });
   };
 
   componentDidUpdate() {
@@ -66,8 +69,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 

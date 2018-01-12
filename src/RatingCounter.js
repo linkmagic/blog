@@ -7,36 +7,44 @@ export default class RatingCounter extends React.Component {
     super(props);
 
     this.state = {
-      postItemRating: props.postItemRating
+      rating: this.props.article.rating
     };
   }
 
   clickUp = () => {
-    let { postItemRating } = this.state;
-    postItemRating++;
+    let { rating } = this.state;
+    rating++;
     this.setState({
-      postItemRating: postItemRating
+      rating: rating
     });
+    this.props.article.rating = rating;
   };
 
   clickDown = () => {
-    let { postItemRating } = this.state;
-    postItemRating--;
+    let { rating } = this.state;
+    rating--;
     this.setState({
-      postItemRating: postItemRating
+      rating: rating
     });
+    this.props.article.rating = rating;
   };
 
   render() {
-    const { postItemRating } = this.state;
+    const { rating } = this.state;
 
     return (
       <div className="RatingCounter">
-        <img className="RatingCounter__Btn" src="img/rating-down.png" alt="rating-down" onClick={ this.clickDown } />
+        <img className="RatingCounter__Btn"
+             src="img/rating-down.png"
+             onClick={this.clickDown}
+             alt="rating-down"/>
         <p className="RatingCounter__Value">
-          { postItemRating }
+          {rating}
         </p>
-        <img className="RatingCounter__Btn" src="img/rating-up.png" alt="rating-up" onClick={ this.clickUp }/>
+        <img className="RatingCounter__Btn"
+             src="img/rating-up.png"
+             onClick={this.clickUp}
+             alt="rating-up"/>
       </div>
     );
   }

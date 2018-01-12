@@ -9,12 +9,16 @@ import './DropDown.css';
 class Login extends Component {
 
   loginOnClick = () => {
-    this.props.onDisplayContentChange('USER_PROFILE');
+    this.props.onDisplayContentChange({
+      name: 'USER_PROFILE',
+      value: this.props.userData.userid
+    });
   };
 
   render() {
     const { userData } = this.props;
-    let userName = userData.name;
+    const userName = userData.name;
+
     return (
       <div className="Login">
         <p onClick={this.loginOnClick} className="Login__Title">{userName}</p>
@@ -35,8 +39,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 

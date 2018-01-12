@@ -1,23 +1,24 @@
 /*
-  let PossibleValues = [
-    'PUBLICATIONS',
-    'USERS',
-    'SEARCH',
-    'USER_PROFILE',
-    'SUPPORT',
-    'ABOUT',
-    'OPEN_ARTICLE',
-    'OPEN_ARTICLES_BY_GROUP',
+  PossibleValues:
+    'PUBLICATIONS'
+    'USERS'
+    'SEARCH'
+    'USER_PROFILE'
+    'SUPPORT'
+    'ABOUT'
+    'OPEN_ARTICLE'
+    'OPEN_ARTICLES_BY_GROUP'
     'OPEN_OTHER_USER_PROFILE'
-  ];
 */
 
-const initialState = 'PUBLICATIONS';
+const initialState = {
+  name: 'PUBLICATIONS',
+  value: 0
+};
 
-export default function displayContent(state = initialState, action, value) {
+export default function displayContent(state = initialState, action) {
   if (action.type === 'DISPLAY_CONTENT') {
-    // console.log(action);
-    return action.name;
+    return action.action;
   }
   return state;
 }

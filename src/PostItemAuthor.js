@@ -6,7 +6,10 @@ import './PostItemAuthor.css';
 class PostItemAuthor extends Component {
 
   onClick = () => {
-    this.props.onDisplayContentChange('OPEN_OTHER_USER_PROFILE');
+    this.props.onDisplayContentChange({
+      name: 'OPEN_OTHER_USER_PROFILE',
+      value: this.props.authorUserid
+    });
   };
 
   render() {
@@ -31,8 +34,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 

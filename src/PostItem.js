@@ -12,24 +12,11 @@ import PostItemBookmark from './PostItemBookmark';
 
 class PostItem extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      articleId: this.props.article.articleid,
-      articleGroupId: this.props.article.groupid,
-      userId: this.props.article.userid
-    };
-  }
-
   titleOnClick = () => {
-    console.log(this.state.articleId);
-    this.props.onDisplayContentChange('OPEN_ARTICLE');
-  };
-
-  articleGroupOnClick = () => {
-    console.log(this.state.articleGroupId);
-    this.props.onDisplayContentChange('OPEN_ARTICLES_BY_GROUP');
+    this.props.onDisplayContentChange({
+      name: 'OPEN_ARTICLE',
+      value: this.props.article.articleid
+    });
   };
 
   render() {
@@ -51,8 +38,9 @@ class PostItem extends Component {
         <div className="PostItem__Info">
           <PostItemDateTime postItemDateTime={article.createdate} />
           <PostItemArticleGroup articleGroupName={articleGroupName}
-                                articleGroupId={this.state.articleGroupId} />
-          <PostItemAuthor authorNickName={authorNickName} authorUserId={this.state.userId}/>
+                                articleGroupId={this.props.article.groupid} />
+          <PostItemAuthor authorNickName={authorNickName}
+                          authorUserid={this.props.article.userid}/>
         </div>
         
         <div className="PostItem__Body">
@@ -61,7 +49,7 @@ class PostItem extends Component {
         
         <div className="PostItem__Info">
           <PostItemComments postItemComments={article.comments.length + " comments"}/>
-          <RatingCounter postItemRating={article.rating}/>
+          <RatingCounter article={article}/>
           <PostItemBookmark/>
         </div>
 
@@ -78,8 +66,8 @@ export default connect(
   }),
 
   dispatch => ({
-    onDisplayContentChange: (name) => {
-      dispatch({ type: 'DISPLAY_CONTENT', name});
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
     }
   })
 
