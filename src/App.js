@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './App.css';
 
+import Utils from './Utils';
 import HeaderTopSpace from './HeaderTopSpace';
 import NavMenu from './NavMenu';
 import NavItem from './NavItem';
@@ -10,6 +11,7 @@ import Logo from './Logo';
 import Search from './Search';
 import Login from './Login';
 import PostItem from './PostItem';
+import ArticleFull from './ArticleFull';
 import JSONResources from './JSONResources';
 import UserTable from './UserTable';
 import UserProfile from './UserProfile';
@@ -26,30 +28,6 @@ class App extends Component {
     this.jsonResources = new JSONResources();
   }
 
-  getAuthorNickname = (id) => {
-    let nickName = 'Unregistered';
-
-    for (let i = 0; i < this.jsonResources.jsonUsers.length; i++) {
-      if (id === this.jsonResources.jsonUsers[i].userid) {
-        return this.jsonResources.jsonUsers[i].nickname;
-      }
-    }
-
-    return nickName;
-  };
-
-  getArticleGroupName = (id) => {
-    let groupName = 'Unnamed';
-
-    for (let i = 0; i < this.jsonResources.jsonArticleGroups.length; i++) {
-      if (id === this.jsonResources.jsonArticleGroups[i].groupid) {
-        return this.jsonResources.jsonArticleGroups[i].name;
-      }
-    }
-
-    return groupName;
-  };
-
   displayContent = () => {
     const { displayContent } = this.props.displayState;
 
@@ -62,8 +40,8 @@ class App extends Component {
             this.jsonResources.jsonArticles.map((article, index) => {
               return (
                 <PostItem article={article}
-                          authorNickName={this.getAuthorNickname(article.userid)}
-                          articleGroupName={this.getArticleGroupName(article.groupid)}
+                          authorNickName={Utils.getAuthorNicknameById(this.jsonResources.jsonUsers, article.userid)}
+                          articleGroupName={Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid)}
                           key={index}
                 />
               );
@@ -114,10 +92,18 @@ class App extends Component {
       }
 
       case 'OPEN_ARTICLE' : {
+        let article = Utils.getArticleById(this.jsonResources.jsonArticles, displayContent.value);
+        const nickname = Utils.getAuthorNicknameById(this.jsonResources.jsonUsers, article.userid);
+        const groupname = Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid);
+
         return (
           <div className="AppContent__Container">
-            ARTICLE DETAILS...
-            <p>article ID: {displayContent.value}</p>
+            {(article === null)
+              ? <p>Article not found</p>
+              : <ArticleFull article={article}
+                             articleGroupName={groupname}
+                             authorNickname={nickname} />
+            }
           </div>
         );
       }
