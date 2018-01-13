@@ -20,15 +20,12 @@ export default class ArticleFull extends Component {
     } = this.props;
 
     let parsedHtml = new DOMParser().parseFromString(article.body, 'text/html');
-    let articleBody = parsedHtml.getElementsByTagName('div')[0];
-    // console.log(parsedHtml, articleBody);
 
     let articleBodyElem = React.createElement(
       ArticleFullBody,
       {},
-      articleBody
+      parsedHtml.body.innerText
     );
-    // console.log(articleBodyElem);
 
     return (
       <div className="ArticleFull">
