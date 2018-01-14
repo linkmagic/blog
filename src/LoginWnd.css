@@ -1,0 +1,81 @@
+.LRUser {
+  display: block;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: 30px auto 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.LRUser__TabTitles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(59,59,59);
+  border-radius: 10px 10px 0 0;
+}
+
+.LRUser__TabTitle__Name {
+  text-align: center;
+  padding: 10px 15px;
+  margin: 0;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid rgb(150,150,150);
+  color: rgb(130,130,130);
+  font-family: Arial;
+  font-size: 15px;
+}
+
+.LRUser__TabTitle__Name:hover {
+  color: rgb(0, 215, 254);
+  border-bottom: 3px solid rgb(0, 215, 254);
+}
+
+.LRUser__TabTitle__Name-active {
+  color: rgb(0, 215, 254);
+  border-bottom: 3px solid rgb(0, 215, 254);
+}
+
+.LRUser__Tab__Login {
+  display: display;
+}
+
+.LRUser__FieldLine {
+  display: inline-block;
+  width: calc(100% - 20px);
+  padding: 0;
+  margin: 12px 0 0 10px;
+}
+
+.LRUser__ButtonLine {
+  display: inline-block;
+  width: calc(100% - 20px);
+  padding: 0;
+  margin: 20px 10px;
+  text-align: right;
+}
+
+.LRUser__Button {
+  width: 70px;
+  height: 25px;
+}
+
+.LRUser__FieldLbl,
+.LRUser__FieldText,
+.LRUser__FieldTextPwd {
+  display: block;
+  width: calc(100% - 3px);
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.LRUser__Tab__Register {
+  display: none;
+}
+
+.LRUser__Tab__ResetPass {
+  display: none;
+}

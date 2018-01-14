@@ -1,5 +1,6 @@
 /*
   PossibleValues:
+    'LOGIN'
     'PUBLICATIONS'
     'USERS'
     'SEARCH'
@@ -12,7 +13,7 @@
 */
 
 const initialState = {
-  name: 'PUBLICATIONS',
+  name: 'LOGIN',
   value: 0
 };
 

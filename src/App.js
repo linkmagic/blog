@@ -10,6 +10,7 @@ import NavItem from './NavItem';
 import Logo from './Logo';
 import Search from './Search';
 import Login from './Login';
+import LoginWnd from './LoginWnd';
 import PostItem from './PostItem';
 import ArticleFull from './ArticleFull';
 import JSONResources from './JSONResources';
@@ -32,6 +33,14 @@ class App extends Component {
     const { displayContent } = this.props.displayState;
 
     switch(displayContent.name) {
+
+      case 'LOGIN' : {
+        return (
+          <div className="AppContent__Container">
+            <LoginWnd/>
+          </div>
+        );
+      }
 
       case 'PUBLICATIONS' : {
         return (
