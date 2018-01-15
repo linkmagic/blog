@@ -17,6 +17,9 @@ class Login extends Component {
 
   logoutOnClick = () => {
     this.props.onLogoutUser();
+    this.props.onDisplayContentChange({
+      name: 'PUBLICATIONS'
+    });
   };
 
   titleGuestOnClick = () => {

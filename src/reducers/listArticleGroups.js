@@ -4,15 +4,15 @@ export default function listArticleGroups(state = initialState, action) {
 
   switch(action.type) {
 
-    case 'ADD' : {
+    case 'ADD_ARTICLE_GROUP' : {
       return state;
     }
 
-    case 'REMOVE' : {
+    case 'REMOVE_ARTICLE_GROUP' : {
       return state;
     }
 
-    case 'EDIT' : {
+    case 'EDIT_ARTICLE_GROUP' : {
       return state;
     }
 

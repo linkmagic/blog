@@ -4,15 +4,15 @@ export default function listArticles(state = initialState, action) {
 
   switch(action.type) {
 
-    case 'ADD' : {
+    case 'ADD_ARTICLE' : {
       return state;
     }
 
-    case 'REMOVE' : {
+    case 'REMOVE_ARTICLE' : {
       return state;
     }
 
-    case 'EDIT' : {
+    case 'EDIT_ARTICLE' : {
       return state;
     }
 

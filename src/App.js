@@ -64,7 +64,6 @@ class App extends Component {
 
       case 'SEARCH' : {
         const { displayContent } = this.props.blogState;
-
         let { listArticles } = this.props.blogState;
         let searchResult = [];
 
@@ -126,10 +125,29 @@ class App extends Component {
       }
 
       case 'OPEN_ARTICLES_BY_GROUP' : {
+        const { displayContent } = this.props.blogState;
+        let { listArticles } = this.props.blogState;
+        let searchResult = [];
+
+        for (let i = 0; i < listArticles.length; i++) {
+          if (listArticles[i].groupid === displayContent.value) {
+            searchResult.push(listArticles[i]);
+          }
+        }
+
         return (
           <div className="AppContent__Container">
-            ARTICLES BY GROUP...
-            <p>article group ID: {displayContent.value}</p>
+            {
+              searchResult.map((article, index) => {
+                return (
+                  <PostItem article={article}
+                            authorNickName={Utils.getAuthorNicknameById(this.props.blogState.listUsers, article.userid)}
+                            articleGroupName={Utils.getArticleGroupNameById(this.props.blogState.listArticleGroups, article.groupid)}
+                            key={index}
+                  />
+                );
+              })
+            }
           </div>
         );
       }
@@ -151,11 +169,8 @@ class App extends Component {
       <div>
         <header>
           <Logo/>
-          <NavMenu menuTitle={'All publications'} >
-            <button className="DropDown__MenuItem">Programming</button>
-            <button className="DropDown__MenuItem">Design</button>
-            <button className="DropDown__MenuItem">Administration</button>
-            <button className="DropDown__MenuItem">Marketing</button>
+          <NavMenu menuTitle={'All publications'}>
+
           </NavMenu>
           <NavItem displayContentName={'USERS'} title={'All Users'}/>
           <Login/>

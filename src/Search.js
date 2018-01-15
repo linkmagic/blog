@@ -44,7 +44,7 @@ class Search extends Component {
 export default connect(
 
   state => ({
-    displayState: state
+    blogState: state
   }),
 
   dispatch => ({

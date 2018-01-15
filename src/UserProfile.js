@@ -38,7 +38,7 @@ class UserProfile extends Component {
       data = userData;
     }
 
-    if (data.avatar && data.avatar.length <= 0) {
+    if ('avatar' in data && data.avatar === '') {
       data.avatar = 'img/avatar-default.png';
     }
 

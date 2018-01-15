@@ -1,7 +1,7 @@
 [
   {
     "userid": "20171212221055",
-    "login": "solo17",
+    "login": "solo17@aol.com",
     "password": "solo1712345",
     "name": "Yevhen",
     "surname": "Sapsai",
@@ -14,7 +14,7 @@
   },
   {
     "userid": "20171212155531",
-    "login": "jq",
+    "login": "jq@email.com",
     "password": "jq12345",
     "name": "John",
     "surname": "Q.",
@@ -27,8 +27,8 @@
   },
   {
     "userid": "20150217121722",
-    "login": "roadster12345",
-    "password": "",
+    "login": "roadster@email.com",
+    "password": "roadster12345",
     "name": "Andy",
     "surname": "R.",
     "birthdate": "1976.10.19",
@@ -40,20 +40,20 @@
   },
   {
     "userid": "20161010145133",
-    "login": "still",
+    "login": "roudy.rods@im.com",
     "password": "still12345",
     "name": "Roudy",
     "surname": "Rods",
     "birthdate": "1979.11.03",
     "regdate": "2016.10.10",
     "nickname": "Still",
-    "email": "  roudy.rods@im.com",
+    "email": "roudy.rods@im.com",
     "rating": "640",
     "avatar": "img/avatar-20161010145133.png"
   },
   {
     "userid": "20180101121720",
-    "login": "ikozakov",
+    "login": "ivan.kozakov@gmail.com",
     "password": "ikozakov12345",
     "name": "Ivan",
     "surname": "Kozakov",
@@ -66,8 +66,8 @@
   },
   {
     "userid": "20180102080600",
-    "login": "petka",
-    "password": "petka12345",
+    "login": "stepka.best@microsoft.com",
+    "password": "stepka12345",
     "name": "Stepan",
     "surname": "Petrov",
     "birthdate": "1988.10.17",
@@ -79,7 +79,7 @@
   },
   {
     "userid": "20180104175504",
-    "login": "eagle",
+    "login": "sokorenko.alex@gmail.com",
     "password": "eagle12345",
     "name": "Alexander",
     "surname": "Sokorenko",

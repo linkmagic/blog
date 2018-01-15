@@ -100,6 +100,34 @@ class LoginWnd extends Component {
       }
 
       case 'REGISTER' : {
+        if (this.RegisterLoginTxt.value.length <= 0
+          || this.RegisterPasswordTxt.value.length <= 0
+          || this.RegisterPasswordRepeatTxt.value.length <= 0)
+        {
+          alert('Fill in the fields: Login, Password, Repeat password');
+          return;
+        }
+
+        if (this.RegisterPasswordTxt.value !== this.RegisterPasswordRepeatTxt.value) {
+          alert('You entered different passwords');
+          return;
+        }
+
+        let loginTxt = this.RegisterLoginTxt.value;
+        let passwordTxt = this.RegisterPasswordTxt.value;
+        const { listUsers } = this.props.blogState;
+
+        for (let i = 0; i < listUsers.length; i++) {
+          if (listUsers[i].login === loginTxt) {
+            alert('User with name `' + loginTxt + '` already exists!');
+            return;
+          }
+        }
+
+        this.props.onAddUser({
+          login: loginTxt,
+          password: passwordTxt
+        });
 
         break;
       }
@@ -166,7 +194,7 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Login">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text" defaultValue='solo17'
+              <input className="LRUser__FieldText" type="text" defaultValue='solo17@aol.com'
                      ref={ (input) => { this.LoginLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
@@ -183,17 +211,17 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Register">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text"
+              <input className="LRUser__FieldText" type="text" defaultValue="admin@blog.ua"
                      ref={ (input) => { this.RegisterLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password"
+              <input className="LRUser__FieldTextPwd" type="password" defaultValue="admin12345"
                      ref={ (input) => { this.RegisterPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Repeat password</label>
-              <input className="LRUser__FieldTextPwd" type="password"
+              <input className="LRUser__FieldTextPwd" type="password" defaultValue="admin12345"
                      ref={ (input) => { this.RegisterPasswordRepeatTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">
@@ -232,6 +260,9 @@ export default connect(
     },
     onLoginUser: (userInfo) => {
       dispatch({ type: 'LOGIN_USER', userInfo });
+    },
+    onAddUser: (userInfo) => {
+      dispatch({ type: 'ADD_USER', userInfo });
     }
   })
 
