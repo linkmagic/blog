@@ -6,13 +6,14 @@ import './Search.css';
 class Search extends Component {
 
   searchOnClick = () => {
-    this.props.onDisplayContentChange({ name: 'SEARCH' });
-
-    // call search api
-    // ...
-
-    this.textInput.value = '';
-    this.textInput.blur();
+    if (this.textInput.value.length > 0) {
+      this.props.onDisplayContentChange({
+        name: 'SEARCH',
+        value: this.textInput.value
+      });
+      this.textInput.value = '';
+      this.textInput.blur();
+    }
   };
 
   handleKeyPress = (event) => {
@@ -24,7 +25,7 @@ class Search extends Component {
   render() {
     return (
       <div className="Search">
-        <input className="Search__Text" type="text" placeholder="Search"
+        <input className="Search__Text" type="text" placeholder="Search on site"
                onKeyPress={this.handleKeyPress}
                ref={(input) => { this.textInput = input; }}
         />

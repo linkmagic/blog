@@ -13,7 +13,6 @@ import Login from './Login';
 import LoginWnd from './LoginWnd';
 import PostItem from './PostItem';
 import ArticleFull from './ArticleFull';
-import JSONResources from './JSONResources';
 import UserTable from './UserTable';
 import UserProfile from './UserProfile';
 import SearchResult from './SearchResult';
@@ -23,11 +22,6 @@ import ItemSocialNetwork from './ItemSocialNetwork';
 import SupportForm from './SupportForm';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.jsonResources = new JSONResources();
-  }
 
   displayContent = () => {
     const { displayContent } = this.props.blogState;
@@ -46,11 +40,11 @@ class App extends Component {
         return (
           <div className="AppContent__Container">
           {
-            this.jsonResources.jsonArticles.map((article, index) => {
+            this.props.blogState.listArticles.map((article, index) => {
               return (
                 <PostItem article={article}
                           authorNickName={Utils.getAuthorNicknameById(this.props.blogState.listUsers, article.userid)}
-                          articleGroupName={Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid)}
+                          articleGroupName={Utils.getArticleGroupNameById(this.props.blogState.listArticleGroups, article.groupid)}
                           key={index}
                 />
               );
@@ -69,9 +63,22 @@ class App extends Component {
       }
 
       case 'SEARCH' : {
+        const { displayContent } = this.props.blogState;
+
+        let { listArticles } = this.props.blogState;
+        let searchResult = [];
+
+        for (let i = 0; i < listArticles.length; i++) {
+          if (listArticles[i].title.indexOf(displayContent.value) > 0
+            || listArticles[i].body.indexOf(displayContent.value) > 0)
+          {
+            searchResult.push(listArticles[i]);
+          }
+        }
+
         return (
           <div className="AppContent__Container">
-            <SearchResult/>
+            <SearchResult searchFor={displayContent.value} searchResult={searchResult}/>
           </div>
         );
       }
@@ -102,9 +109,9 @@ class App extends Component {
       }
 
       case 'OPEN_ARTICLE' : {
-        let article = Utils.getArticleById(this.jsonResources.jsonArticles, displayContent.value);
+        let article = Utils.getArticleById(this.props.blogState.listArticles, displayContent.value);
         const nickname = Utils.getAuthorNicknameById(this.props.blogState.listUsers, article.userid);
-        const groupname = Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid);
+        const groupname = Utils.getArticleGroupNameById(this.props.blogState.listArticleGroups, article.groupid);
 
         return (
           <div className="AppContent__Container">
@@ -191,10 +198,6 @@ export default connect(
     blogState: state
   }),
 
-  dispatch => ({
-    onDisplayContentChange: (action) => {
-      dispatch({ type: 'DISPLAY_CONTENT', action });
-    }
-  })
+  dispatch => ({})
 
 )(App);

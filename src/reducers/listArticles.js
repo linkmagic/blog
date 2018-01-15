@@ -1,6 +1,6 @@
-const initialState = require('.././data/users.json');
+const initialState = require('.././data/articles.json');
 
-export default function listUsers(state = initialState, action) {
+export default function listArticles(state = initialState, action) {
 
   switch(action.type) {
 
