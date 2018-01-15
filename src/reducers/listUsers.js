@@ -39,7 +39,7 @@ export default function listUsers(state = initialState, action) {
           nickname: 'new user',
           email: action.userInfo.login,
           rating: '0',
-          avatar: '',
+          avatar: 'img/avatar-default.png',
         }
       ];
     }

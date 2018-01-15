@@ -87,7 +87,6 @@ class LoginWnd extends Component {
         if (userData) {
           let loggedinUser = {};
           Object.assign(loggedinUser, userData);
-          delete loggedinUser.login;
           delete loggedinUser.password;
 
           this.props.onLoginUser(loggedinUser);
@@ -124,17 +123,26 @@ class LoginWnd extends Component {
           }
         }
 
+        // add user to REDUX DB and create full profile
         this.props.onAddUser({
           login: loginTxt,
           password: passwordTxt
         });
 
-        break;
+        this.RegisterLoginTxt.value = '';
+        this.RegisterPasswordTxt.value = '';
+        this.RegisterPasswordRepeatTxt.value = '';
+
+        let loginBtnTab = document.getElementById('idLoginBtn');
+        loginBtnTab.click();
+        this.LoginLoginTxt.focus();
+
+        return;
       }
 
       case 'RESETPASS' : {
 
-        break;
+        return;
       }
 
       default : return;
@@ -168,6 +176,10 @@ class LoginWnd extends Component {
     }
   };
 
+  componentDidMount() {
+    this.LoginLoginTxt.focus();
+  }
+
   render() {
     return (
       <div className="LRUser">
@@ -194,12 +206,12 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Login">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text" defaultValue='solo17@aol.com'
+              <input className="LRUser__FieldText" type="text"
                      ref={ (input) => { this.LoginLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password" defaultValue='solo1712345'
+              <input className="LRUser__FieldTextPwd" type="password"
                      ref={ (input) => { this.LoginPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">
@@ -211,17 +223,17 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Register">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text" defaultValue="admin@blog.ua"
+              <input className="LRUser__FieldText" type="text"
                      ref={ (input) => { this.RegisterLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password" defaultValue="admin12345"
+              <input className="LRUser__FieldTextPwd" type="password"
                      ref={ (input) => { this.RegisterPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Repeat password</label>
-              <input className="LRUser__FieldTextPwd" type="password" defaultValue="admin12345"
+              <input className="LRUser__FieldTextPwd" type="password"
                      ref={ (input) => { this.RegisterPasswordRepeatTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">

@@ -20,6 +20,7 @@ import PanelHorizSpace from './PanelHorizSpace';
 import SiteCopyrightLabel from './SiteCopyrightLabel';
 import ItemSocialNetwork from './ItemSocialNetwork';
 import SupportForm from './SupportForm';
+import AboutWnd from './AboutWnd';
 
 class App extends Component {
 
@@ -102,7 +103,7 @@ class App extends Component {
       case 'ABOUT' : {
         return (
           <div className="AppContent__Container">
-            ABOUT...
+            <AboutWnd/>
           </div>
         );
       }
@@ -169,9 +170,7 @@ class App extends Component {
       <div>
         <header>
           <Logo/>
-          <NavMenu menuTitle={'All publications'}>
-
-          </NavMenu>
+          <NavMenu menuTitle={'All publications'}/>
           <NavItem displayContentName={'USERS'} title={'All Users'}/>
           <Login/>
           <Search/>

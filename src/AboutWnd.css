@@ -1,0 +1,34 @@
+.About {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  font-family: Arial;
+}
+
+.About__Title {
+  margin: 20px 0 10px 0;
+  padding: 0;
+
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.About__Description {
+  margin: 20px 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+.About__Statistic {
+  margin: 20px 0 10px 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold
+}
+
+.About__Statistic__Item {
+  margin: 5px 0 0 20px;
+  padding: 0;
+  font-size: 16px;
+  color: gray;
+}

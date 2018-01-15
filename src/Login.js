@@ -28,27 +28,29 @@ class Login extends Component {
 
   render() {
     const { loginUser } = this.props.blogState;
-    let resultRender,
-        avatarPath = 'img/guest-avatar.png';
+    let resultRender;
 
     if ('userid' in loginUser) {
-      if (loginUser.avatar.length > 0) {
-        avatarPath = loginUser.avatar;
-      }
       resultRender = (
         <div className="Login">
           <DropDown>
             <p><button onClick={this.logoutOnClick} className="DropDown__MenuItem">Logout</button></p>
           </DropDown>
           <p onClick={this.loginOnClick} className="Login__Title">{loginUser.name}</p>
-          <img onClick={this.loginOnClick} className="Login__Avatar" src={avatarPath} alt="user"/>
+          <img onClick={this.loginOnClick}
+               className="Login__Avatar"
+               src={loginUser.avatar}
+               alt="user"/>
         </div>
       );
     } else {
       resultRender = (
         <div className="Login">
           <p onClick={this.titleGuestOnClick} className="Login__Title">Guest</p>
-          <img onClick={this.titleGuestOnClick} className="Login__Avatar" src="img/guest-avatar.png" alt="user"/>
+          <img onClick={this.titleGuestOnClick}
+               className="Login__Avatar"
+               src="img/guest-avatar.png"
+               alt="user"/>
         </div>
       );
     }
