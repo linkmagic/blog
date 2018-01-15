@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './PostItem.css';
 
+import Utils from './Utils';
 import PostItemComments from './PostItemComments';
 import RatingCounter from './RatingCounter';
 import PostItemDateTime from './PostItemDateTime';
@@ -19,6 +20,10 @@ class PostItem extends Component {
     });
   };
 
+  getArticleBodyText = (text) => {
+    return (text.length <= 500) ? text : text.slice(0, 500) + '...';
+  };
+
   render() {
     const {
       article,
@@ -26,13 +31,15 @@ class PostItem extends Component {
       articleGroupName
     } = this.props;
 
+    const { loginUser } = this.props.blogState;
+
     return (
       <div className="PostItem">
 
         <h3 className="PostItem__Title">
-          <button onClick={this.titleOnClick} className="PostItem__Title__Button">
-            {article.title}
-          </button>
+          <button onClick={this.titleOnClick}
+                  className="PostItem__Title__Button"
+                  dangerouslySetInnerHTML={Utils.createMarkup(article.title)}/>
         </h3>
           
         <div className="PostItem__Info">
@@ -43,14 +50,13 @@ class PostItem extends Component {
                           authorUserid={this.props.article.userid}/>
         </div>
         
-        <div className="PostItem__Body">
-          {(article.body.length <= 500) ? article.body : article.body.slice(0, 500) + '...'}
-        </div>
-        
+        <div className="PostItem__Body"
+             dangerouslySetInnerHTML={Utils.createMarkup(this.getArticleBodyText(article.body))}/>
+
         <div className="PostItem__Info">
           <PostItemComments postItemComments={article.comments.length + " comments"}/>
           <RatingCounter article={article}/>
-          <PostItemBookmark/>
+          { ('userid' in loginUser) ? <PostItemBookmark/> : '' }
         </div>
 
       </div>
@@ -62,7 +68,7 @@ class PostItem extends Component {
 export default connect(
 
   state => ({
-    displayState: state
+    blogState: state
   }),
 
   dispatch => ({

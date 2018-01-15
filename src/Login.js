@@ -11,36 +11,67 @@ class Login extends Component {
   loginOnClick = () => {
     this.props.onDisplayContentChange({
       name: 'USER_PROFILE',
-      value: this.props.userData.userid
+      value: this.props.blogState.loginUser.userid
+    });
+  };
+
+  logoutOnClick = () => {
+    this.props.onLogoutUser({
+      name: 'LOGOUT_USER',
+      value: 0
+    });
+  };
+
+  titleGuestOnClick = () => {
+    this.props.onDisplayContentChange({
+      name: 'LOGIN',
+      value: 0
     });
   };
 
   render() {
-    const { userData } = this.props;
-    const userName = userData.name;
+    const { loginUser } = this.props.blogState;
+    let resultRender,
+        avatarPath = 'img/guest-avatar.png';
 
-    return (
-      <div className="Login">
-        <p onClick={this.loginOnClick} className="Login__Title">{userName}</p>
-        <img onClick={this.loginOnClick} className="Login__Avatar" src={userData.avatar} alt="user"/>
-        <DropDown>
-          <p><button className="DropDown__MenuItem">Выход</button></p>
-          <p><button className="DropDown__MenuItem">Настройки</button></p>
-        </DropDown>
-      </div>
-    );
+    if ('userid' in loginUser) {
+      if (loginUser.avatar.length > 0) {
+        avatarPath = loginUser.avatar;
+      }
+      resultRender = (
+        <div className="Login">
+          <DropDown>
+            <p><button onClick={this.logoutOnClick} className="DropDown__MenuItem">Logout</button></p>
+          </DropDown>
+          <p onClick={this.loginOnClick} className="Login__Title">{loginUser.name}</p>
+          <img onClick={this.loginOnClick} className="Login__Avatar" src={avatarPath} alt="user"/>
+        </div>
+      );
+    } else {
+      resultRender = (
+        <div className="Login">
+          <p onClick={this.titleGuestOnClick} className="Login__Title">Guest</p>
+          <img onClick={this.titleGuestOnClick} className="Login__Avatar" src="img/guest-avatar.png" alt="user"/>
+        </div>
+      );
+    }
+
+    return resultRender;
   }
 }
 
 export default connect(
 
   state => ({
-    displayState: state
+    blogState: state
   }),
 
   dispatch => ({
     onDisplayContentChange: (action) => {
-      dispatch({ type: 'DISPLAY_CONTENT', action});
+      dispatch({ type: 'DISPLAY_CONTENT', action });
+    },
+    onLogoutUser: (action) => {
+      dispatch({ type: 'LOGOUT_USER', action });
     }
   })
 

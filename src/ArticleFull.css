@@ -1,13 +1,17 @@
 .ArticleFull {
   display: block;
   width: 100%;
+  margin: 20px 0 0 0;
 }
 
 .ArticleFull__Title {
   font-family: Arial;
+  font-weight: normal;
   font-size: 18px;
   margin: 10px;
   padding: 0;
+  color: black;
+  border: none;
 }
 
 .ArticleFull__Info {

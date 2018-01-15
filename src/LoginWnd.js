@@ -68,43 +68,78 @@ class LoginWnd extends Component {
 
   okBtnOnClick = () => {
     const { activeTab } = this.state;
+
     switch(activeTab) {
 
       case 'LOGIN' : {
-        console.log('OK','LOGIN');
+        let userData = null;
+        const { users } = this.props;
+
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].login === this.LoginLoginTxt.value
+            && users[i].password === this.LoginPasswordTxt.value)
+          {
+            userData = users[i];
+            break;
+          }
+        }
+
+        if (userData) {
+          let loggedinUser = {};
+          Object.assign(loggedinUser, userData);
+          delete loggedinUser.login;
+          delete loggedinUser.password;
+
+          this.props.onLoginUser(loggedinUser);
+
+          this.props.onDisplayContentChange({
+            name: 'PUBLICATIONS',
+            value: 0
+          });
+        } else {
+          alert('Wrong Login/Password. Try again...')
+        }
         break;
       }
 
       case 'REGISTER' : {
-        console.log('OK','REGISTER');
+
         break;
       }
 
       case 'RESETPASS' : {
-        console.log('OK','RESETPASS');
+
         break;
       }
+
+      default : return;
     }
   };
 
   clearBtnOnClick = () => {
     const { activeTab } = this.state;
+
     switch(activeTab) {
 
       case 'LOGIN' : {
-        console.log('CLEAR','LOGIN');
+        this.LoginLoginTxt.value = '';
+        this.LoginPasswordTxt.value = '';
         break;
       }
 
       case 'REGISTER' : {
-        console.log('CLEAR','REGISTER');
+        this.RegisterLoginTxt.value = '';
+        this.RegisterPasswordTxt.value = '';
+        this.RegisterPasswordRepeatTxt.value = '';
         break;
       }
 
       case 'RESETPASS' : {
-        console.log('CLEAR','RESETPASS');
+        this.ResetPassEmailTxt.value = '';
         break;
       }
+
+      default : return;
     }
   };
 
@@ -134,11 +169,13 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Login">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text"/>
+              <input className="LRUser__FieldText" type="text" defaultValue='solo17'
+                     ref={ (input) => { this.LoginLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password"/>
+              <input className="LRUser__FieldTextPwd" type="password" defaultValue='solo1712345'
+                     ref={ (input) => { this.LoginPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">
               <button className="LRUser__Button" onClick={this.okBtnOnClick}>OK</button>
@@ -149,15 +186,18 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Register">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Login</label>
-              <input className="LRUser__FieldText" type="text"/>
+              <input className="LRUser__FieldText" type="text"
+                     ref={ (input) => { this.RegisterLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password"/>
+              <input className="LRUser__FieldTextPwd" type="password"
+                     ref={ (input) => { this.RegisterPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Repeat password</label>
-              <input className="LRUser__FieldTextPwd" type="password"/>
+              <input className="LRUser__FieldTextPwd" type="password"
+                     ref={ (input) => { this.RegisterPasswordRepeatTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">
               <button className="LRUser__Button" onClick={this.okBtnOnClick}>OK</button>
@@ -168,7 +208,8 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__ResetPass">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">E-mail</label>
-              <input className="LRUser__FieldText" type="text"/>
+              <input className="LRUser__FieldText" type="text"
+                     ref={ (input) => { this.ResetPassEmailTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">
               <button className="LRUser__Button" onClick={this.okBtnOnClick}>OK</button>
@@ -185,12 +226,15 @@ class LoginWnd extends Component {
 export default connect(
 
   state => ({
-    displayState: state
+    blogState: state
   }),
 
   dispatch => ({
     onDisplayContentChange: (action) => {
-      dispatch({ type: 'DISPLAY_CONTENT', action});
+      dispatch({ type: 'DISPLAY_CONTENT', action });
+    },
+    onLoginUser: (action) => {
+      dispatch({ type: 'LOGIN_USER', action });
     }
   })
 

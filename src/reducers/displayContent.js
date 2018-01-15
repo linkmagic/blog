@@ -13,7 +13,7 @@
 */
 
 const initialState = {
-  name: 'LOGIN',
+  name: 'PUBLICATIONS',
   value: 0
 };
 

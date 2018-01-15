@@ -29,11 +29,7 @@ export default class UserProfile extends Component {
                src={data.avatar}
                onClick={this.visiblePreviewPhoto}
                alt="user avatar"/>
-          {/*<div className="UserProfile__Photo__Buttons">*/}
-            {/*<button className="UserProfile__Photo__Button">Set</button>*/}
-            {/*<button className="UserProfile__Photo__Button">Clear</button>*/}
-          {/*</div>*/}
-          
+
         </div>
         <div className="UserProfile__Details">
           <p className="UserProfile__Details__Name">

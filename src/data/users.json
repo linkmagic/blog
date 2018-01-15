@@ -1,6 +1,8 @@
 [
   {
     "userid": "20171212221055",
+    "login": "solo17",
+    "password": "solo1712345",
     "name": "Yevhen",
     "surname": "Sapsai",
     "birthdate": "1986.10.23",
@@ -12,6 +14,8 @@
   },
   {
     "userid": "20171212155531",
+    "login": "jq",
+    "password": "jq12345",
     "name": "John",
     "surname": "Q.",
     "birthdate": "1988.12.12",
@@ -23,6 +27,8 @@
   },
   {
     "userid": "20150217121722",
+    "login": "roadster12345",
+    "password": "",
     "name": "Andy",
     "surname": "R.",
     "birthdate": "1976.10.19",
@@ -34,6 +40,8 @@
   },
   {
     "userid": "20161010145133",
+    "login": "still",
+    "password": "still12345",
     "name": "Roudy",
     "surname": "Rods",
     "birthdate": "1979.11.03",
@@ -45,17 +53,21 @@
   },
   {
     "userid": "20180101121720",
+    "login": "ikozakov",
+    "password": "ikozakov12345",
     "name": "Ivan",
     "surname": "Kozakov",
     "birthdate": "1977.12.01",
     "regdate": "2018.01.01",
-    "nickname": "Ikazov",
-    "email": "ivan.kazakov@gmail.com",
+    "nickname": "iKozakov",
+    "email": "ivan.kozakov@gmail.com",
     "rating": "540",
     "avatar": ""
   },
   {
     "userid": "20180102080600",
+    "login": "petka",
+    "password": "petka12345",
     "name": "Stepan",
     "surname": "Petrov",
     "birthdate": "1988.10.17",
@@ -67,6 +79,8 @@
   },
   {
     "userid": "20180104175504",
+    "login": "eagle",
+    "password": "eagle12345",
     "name": "Alexander",
     "surname": "Sokorenko",
     "birthdate": "1982.05.16",

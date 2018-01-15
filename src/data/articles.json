@@ -6,7 +6,7 @@
     "createdate": "2017.12.12",
     "rating": "1",
     "comments": [],
-    "title": "Грязные трюки и оперативка",
+    "title": "<div>Грязные трюки и оперативка</div>",
     "body": "<div>Проблемы с ограничениями памяти давно в прошлом? Оказывается, нет. Плохо работают с памятью не только некоторые коммерческие движки — у многих платформ достаточно агрессивные требования к ОЗУ. Кроме того, к ним добавляются ещё и ограничения по размерам дисков и картриджей.</div>"
   },
   {
@@ -16,7 +16,7 @@
     "createdate": "2016.01.19",
     "rating": "7",
     "comments": [],
-    "title": "Scrum внедрили, agile — забыли",
+    "title": "<div>Scrum внедрили, agile — забыли<d/iv>",
     "body": "<div>Недавно мне посчастливилось начать работу с одной относительно немаленькой компанией (~100 человек), где, как выразился наниматель, “по-отдельности все хорошие специалисты, а вместе работать не получается”. Ну, думаю, я как раз специализируюсь на создании команд, дай, думаю, помогу чем смогу. Пообщались на собеседовании на тему общего понимания цели компании, об условиях, в которых возможна успешная совместная работа, о максимальном использовании компетенций сотрудников и о вовлечении в общее дело. Казалось бы, мысли у нас с нанимателем сходятся, но сам держу ухо востро — знаю о негативной репутации компании у потенциальных соискателей в городе. Ну что же, тем интереснее будет задача!</div>"
   },
   {
@@ -26,7 +26,7 @@
     "createdate": "2016.11.07",
     "rating": "4",
     "comments": [],
-    "title": "Как подружить Skype и прокси",
+    "title": "<div>Как подружить Skype и прокси</div>",
     "body": "<div>Всем добра, хабровчане! В статье расскажу как победить этот долбаный Skype и заставить его работать с Squid, но применимо к любому http(s) прокси. Будем использовать последний скайп. На данный момент это 7.40 и конечно, с упором на то, что очередной апдейт ничего не сломает, а если и сломает то надо будет чуток докрутить, а не откатывать версию. Сразу скажу, по сути описанный метод — это хак, т.к. актуальный скайп со сквидом работать не умеет, ну или мне не удалось победить, да и в интернете я не нашел решения, которое бы для меня взлетело.</div>"
   },
   {
@@ -36,7 +36,7 @@
     "createdate": "2017.01.10",
     "rating": "33",
     "comments": [],
-    "title": "CPU сдаст вас с потрохами: самая серьезная дыра в безопасности за всю историю наблюдений?",
+    "title": "<div>CPU сдаст вас с потрохами: самая серьезная дыра в безопасности за всю историю наблюдений?</div>",
     "body": "<div>Исследователи Google опубликовали исследование «Reading privileged memory with a side-channel», в котором они описывают найденную ими аппаратную уязвимость, которая затрагивает практически все современные и устаревшие процессоры вне зависимости от операционной системы. Строго говоря, уязвимостей целых две. Одной подвержены многие процессоры Intel (на них проводилось исследование). AMD с ARM также уязвимы, но атаку реализовать сложнее.     Атака позволяет получить доступ к защищенной памяти из кода, который не обладает соответствующими правами. Пожалуй, самое вероятное и неприятное применение на данный момент — получение дампа системной памяти во время выполнения JavaScript. Другой интересный вариант — эскалация прав чтения памяти из виртуальной машины. Как вам VPS, который ворует данные из других машин хостера? Эксплуатация уязвимости не оставляет следов.</div>"
   },
   {
@@ -46,7 +46,7 @@
     "createdate": "2017.05.19",
     "rating": "22",
     "comments": [],
-    "title": "[Перевод] IOHIDeous — новогодняя zero-day уязвимость от macOS",
+    "title": "<div>[Перевод] IOHIDeous — новогодняя zero-day уязвимость от macOS</div>",
     "body": "<div>Разработчик c GitHub ником Siguza, сделал неортодоксальный новогодний подарок — обнаружил уже долго существующую zero-day уязвимость в macOS, позволяющую атакующему получить root доступ к системе для дальнейшей ее компрометаци. Уязвимость существует уже довольно продолжительный период времени но не предоставляет возможности для удаленного взлома системы. Siguza, который является программистом и хакером из Швейцарии, детально описал уязвимость и дал ей название IOHIDeous. По заявлению Siguza, данной уязвимости подвержены все версии macOS, выпущенные за последние 15 лет.</div>"
   },
   {
@@ -56,7 +56,17 @@
     "createdate": "2017.07.17",
     "rating": "19",
     "comments": [],
-    "title": "JavaScript: 12 вопросов и ответов",
+    "title": "<div>JavaScript: 12 вопросов и ответов</div>",
     "body": "<div>JavaScript — это потрясающий инструмент, который можно найти буквально в каждом углу современного интернета. Но даже несмотря на его невероятную распространённость, и профессионалам в области JS всегда будет чему поучиться. Всегда найдётся что-то такое, чего они не знают. В этом материале вы найдёте разбор двенадцати вопросов о JavaScript, на которые нередко не могут ответить даже опытные разработчики. Сначала мы рассмотрим десять типичных вопросов, включая такие, которые часто всплывают на собеседованиях. Оставшиеся два вопроса посвящены более сложным и неоднозначным вещам, в частности, использованию JS для улучшения производительности веб-страниц и разработке приложений, которые не теряют актуальности с течением времени.</div>"
+  },
+  {
+    "articleid": "20180101224300",
+    "groupid": "20180110180029",
+    "userid": "20171212221055",
+    "createdate": "2017.07.17",
+    "rating": "105",
+    "comments": [],
+    "title": "<div>Style Your Instant Articles</div>",
+    "body": "<div><p>Body Text. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p><br><br><h1> H1 lorem ipsum </h1><br><br><p>Body Text. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><br><br><aside>Pull quote lorem ipsum dolor sit amet, cons ectetur adipi sicing elit, sed do eiusmod.<br><br><cite>JOHN SMITH LOREM IPSUM</cite></aside><br><br><p>Body Text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br><br><h2> H2 lorem ipsum </h2><br><br><p>Body Text. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p><br><br><blockquote><br><br>Block quote. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr ud exer citation ullamco laboris.<br><br></blockquote><br><br><p>Body Text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p><br><br></div>"
   }
 ]

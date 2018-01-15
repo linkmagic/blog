@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './ArticleFull.css';
 
+import Utils from './Utils';
 import PostItemDateTime from './PostItemDateTime';
 import PostItemArticleGroup from './PostItemArticleGroup';
 import PostItemAuthor from './PostItemAuthor';
@@ -19,30 +20,21 @@ export default class ArticleFull extends Component {
       authorNickname
     } = this.props;
 
-    let parsedHtml = new DOMParser().parseFromString(article.body, 'text/html');
-
-    let articleBodyElem = React.createElement(
-      ArticleFullBody,
-      {},
-      parsedHtml.body.innerText
-    );
-
     return (
       <div className="ArticleFull">
 
-        <h3 className="ArticleFull__Title">
-            {article.title}
-        </h3>
+        <h3 className="ArticleFull__Title"
+            dangerouslySetInnerHTML={Utils.createMarkup(article.title)}/>
 
         <div className="ArticleFull__Info">
-          <PostItemDateTime postItemDateTime={article.createdate} />
+          <PostItemDateTime postItemDateTime={article.createdate}/>
           <PostItemArticleGroup articleGroupName={articleGroupName}
-                                articleGroupId={this.props.article.groupid} />
+                                articleGroupId={this.props.article.groupid}/>
           <PostItemAuthor authorNickName={authorNickname}
                           authorUserid={this.props.article.userid}/>
         </div>
 
-        {articleBodyElem}
+        <ArticleFullBody articleBody={article.body}/>
 
         <div className="ArticleFull__Info">
           <PostItemComments postItemComments={this.props.article.comments.length + " comments"}/>

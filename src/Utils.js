@@ -27,4 +27,10 @@ export default class Utils {
     return 'Unnamed';
   };
 
+  static createMarkup = (htmlText) => {
+    return {
+      __html: htmlText
+    };
+  };
+
 }

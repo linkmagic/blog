@@ -37,7 +37,7 @@ class App extends Component {
       case 'LOGIN' : {
         return (
           <div className="AppContent__Container">
-            <LoginWnd/>
+            <LoginWnd users={this.jsonResources.jsonUsers}/>
           </div>
         );
       }
@@ -79,7 +79,7 @@ class App extends Component {
       case 'USER_PROFILE' : {
         return (
           <div className="AppContent__Container">
-            <UserProfile data={this.jsonResources.jsonUserData}/>
+            <UserProfile />
           </div>
         );
       }
@@ -193,7 +193,7 @@ export default connect(
 
   dispatch => ({
     onDisplayContentChange: (action) => {
-      dispatch({ type: 'DISPLAY_CONTENT', action});
+      dispatch({ type: 'DISPLAY_CONTENT', action });
     }
   })
 
