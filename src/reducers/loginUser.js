@@ -2,10 +2,10 @@ const initialState = {};
 
 export default function loginUser(state = initialState, action) {
 
-  switch (action.type ) {
+  switch (action.type) {
 
     case 'LOGIN_USER' : {
-      return action.action;
+      return action.userInfo;
     }
 
     case 'LOGOUT_USER' : {

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './UserTable.css';
 
-export default class UserTable extends Component {
+class UserTable extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      users: this.props.users
+      users: this.props.blogState.listUsers
     };
   }
 
@@ -42,13 +43,21 @@ export default class UserTable extends Component {
   searchButtonImageOnClick = () => {
     if (this.searchInputText.value.length <= 0) {
       this.setState({
-        users: this.props.users
+        users: this.props.blogState.listUsers
       });
     } else {
       this.setState({
-        users: this.applyFilter(this.searchInputText.value, this.props.users)
+        users: this.applyFilter(this.searchInputText.value, this.props.blogState.listUsers)
       });
     }
+  };
+
+  tableRowOnClick = (event) => {
+    let userId = event.target.getAttribute('userid');
+    this.props.onDisplayContentChange({
+      name: 'OPEN_OTHER_USER_PROFILE',
+      value: userId
+    });
   };
 
   render() {
@@ -84,14 +93,14 @@ export default class UserTable extends Component {
           {
             users.map((user, index) => {
               return (
-                <tr key={index} className="UserShort__Table__Row">
-                  <td className="UserShort__Table__cell">{user.name}</td>
-                  <td className="UserShort__Table__cell">{user.surname}</td>
-                  <td className="UserShort__Table__cell">{user.birthdate}</td>
-                  <td className="UserShort__Table__cell">{user.regdate}</td>
-                  <td className="UserShort__Table__cell">{user.nickname}</td>
-                  <td className="UserShort__Table__cell">{user.email}</td>
-                  <td className="UserShort__Table__cell">{user.rating}</td>
+                <tr key={index} className="UserShort__Table__Row" onClick={this.tableRowOnClick}>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.name}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.surname}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.birthdate}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.regdate}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.nickname}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.email}</td>
+                  <td className="UserShort__Table__cell" userid={user.userid}>{user.rating}</td>
                 </tr>
               );
             })
@@ -104,3 +113,17 @@ export default class UserTable extends Component {
   }
 
 }
+
+export default connect(
+
+  state => ({
+    blogState: state
+  }),
+
+  dispatch => ({
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action});
+    }
+  })
+
+)(UserTable);

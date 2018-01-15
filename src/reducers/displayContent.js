@@ -13,8 +13,7 @@
 */
 
 const initialState = {
-  name: 'PUBLICATIONS',
-  value: 0
+  name: 'PUBLICATIONS'
 };
 
 export default function displayContent(state = initialState, action) {

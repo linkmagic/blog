@@ -73,13 +73,13 @@ class LoginWnd extends Component {
 
       case 'LOGIN' : {
         let userData = null;
-        const { users } = this.props;
+        const { listUsers } = this.props.blogState;
 
-        for (let i = 0; i < users.length; i++) {
-          if (users[i].login === this.LoginLoginTxt.value
-            && users[i].password === this.LoginPasswordTxt.value)
+        for (let i = 0; i < listUsers.length; i++) {
+          if (listUsers[i].login === this.LoginLoginTxt.value
+            && listUsers[i].password === this.LoginPasswordTxt.value)
           {
-            userData = users[i];
+            userData = listUsers[i];
             break;
           }
         }
@@ -92,10 +92,7 @@ class LoginWnd extends Component {
 
           this.props.onLoginUser(loggedinUser);
 
-          this.props.onDisplayContentChange({
-            name: 'PUBLICATIONS',
-            value: 0
-          });
+          this.props.onDisplayContentChange({ name: 'PUBLICATIONS' });
         } else {
           alert('Wrong Login/Password. Try again...')
         }
@@ -233,8 +230,8 @@ export default connect(
     onDisplayContentChange: (action) => {
       dispatch({ type: 'DISPLAY_CONTENT', action });
     },
-    onLoginUser: (action) => {
-      dispatch({ type: 'LOGIN_USER', action });
+    onLoginUser: (userInfo) => {
+      dispatch({ type: 'LOGIN_USER', userInfo });
     }
   })
 

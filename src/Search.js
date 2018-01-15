@@ -6,10 +6,7 @@ import './Search.css';
 class Search extends Component {
 
   searchOnClick = () => {
-    this.props.onDisplayContentChange({
-      name: 'SEARCH',
-      value: 0
-    });
+    this.props.onDisplayContentChange({ name: 'SEARCH' });
 
     // call search api
     // ...

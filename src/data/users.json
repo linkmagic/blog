@@ -10,7 +10,7 @@
     "nickname": "solo17",
     "email": "solo17@aol.com",
     "rating": "700",
-    "avatar": "./img/default_avatar_male.png"
+    "avatar": "img/avatar-20171212221055.png"
   },
   {
     "userid": "20171212155531",
@@ -23,7 +23,7 @@
     "nickname": "JQ",
     "email": "jon.q@email.com",
     "rating": "530",
-    "avatar": ""
+    "avatar": "img/avatar-20171212155531.png"
   },
   {
     "userid": "20150217121722",
@@ -36,7 +36,7 @@
     "nickname": "Roadster",
     "email": "roadroot@gmail.com",
     "rating": "458",
-    "avatar": ""
+    "avatar": "img/avatar-20150217121722.png"
   },
   {
     "userid": "20161010145133",
@@ -49,7 +49,7 @@
     "nickname": "Still",
     "email": "  roudy.rods@im.com",
     "rating": "640",
-    "avatar": ""
+    "avatar": "img/avatar-20161010145133.png"
   },
   {
     "userid": "20180101121720",
@@ -62,7 +62,7 @@
     "nickname": "iKozakov",
     "email": "ivan.kozakov@gmail.com",
     "rating": "540",
-    "avatar": ""
+    "avatar": "img/avatar-20180101121720.png"
   },
   {
     "userid": "20180102080600",
@@ -75,7 +75,7 @@
     "nickname": "Petka",
     "email": "stepka.best@microsoft.com",
     "rating": "860",
-    "avatar": ""
+    "avatar": "img/avatar-20180102080600.png"
   },
   {
     "userid": "20180104175504",

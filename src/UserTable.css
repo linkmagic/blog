@@ -64,6 +64,8 @@
 
 .UserShort__Table__Row:hover {
   background-color: #fff;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .UserShort__Table__cell {

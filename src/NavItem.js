@@ -6,10 +6,7 @@ import './NavItem.css';
 class NavItem extends React.Component {
 
   navItemOnClick = () => {
-    this.props.onDisplayContentChange({
-      name: this.props.displayContentName,
-      value: 0
-    });
+    this.props.onDisplayContentChange({ name: this.props.displayContentName });
   };
 
   render() {

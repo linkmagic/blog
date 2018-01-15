@@ -30,14 +30,14 @@ class App extends Component {
   }
 
   displayContent = () => {
-    const { displayContent } = this.props.displayState;
+    const { displayContent } = this.props.blogState;
 
     switch(displayContent.name) {
 
       case 'LOGIN' : {
         return (
           <div className="AppContent__Container">
-            <LoginWnd users={this.jsonResources.jsonUsers}/>
+            <LoginWnd/>
           </div>
         );
       }
@@ -49,7 +49,7 @@ class App extends Component {
             this.jsonResources.jsonArticles.map((article, index) => {
               return (
                 <PostItem article={article}
-                          authorNickName={Utils.getAuthorNicknameById(this.jsonResources.jsonUsers, article.userid)}
+                          authorNickName={Utils.getAuthorNicknameById(this.props.blogState.listUsers, article.userid)}
                           articleGroupName={Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid)}
                           key={index}
                 />
@@ -63,7 +63,7 @@ class App extends Component {
       case 'USERS' : {
         return (
           <div className="AppContent__Container">
-            <UserTable users={this.jsonResources.jsonUsers}/>
+            <UserTable/>
           </div>
         );
       }
@@ -77,9 +77,10 @@ class App extends Component {
       }
 
       case 'USER_PROFILE' : {
+        const { loginUser } = this.props.blogState;
         return (
           <div className="AppContent__Container">
-            <UserProfile />
+            <UserProfile userData={loginUser}/>
           </div>
         );
       }
@@ -102,7 +103,7 @@ class App extends Component {
 
       case 'OPEN_ARTICLE' : {
         let article = Utils.getArticleById(this.jsonResources.jsonArticles, displayContent.value);
-        const nickname = Utils.getAuthorNicknameById(this.jsonResources.jsonUsers, article.userid);
+        const nickname = Utils.getAuthorNicknameById(this.props.blogState.listUsers, article.userid);
         const groupname = Utils.getArticleGroupNameById(this.jsonResources.jsonArticleGroups, article.groupid);
 
         return (
@@ -129,8 +130,7 @@ class App extends Component {
       case 'OPEN_OTHER_USER_PROFILE' : {
         return (
           <div className="AppContent__Container">
-            OTHER USER PROFILE...
-            <p>User ID: {displayContent.value}</p>
+            <UserProfile userId={displayContent.value}/>
           </div>
         );
       }
@@ -151,7 +151,7 @@ class App extends Component {
             <button className="DropDown__MenuItem">Marketing</button>
           </NavMenu>
           <NavItem displayContentName={'USERS'} title={'All Users'}/>
-          <Login userData={this.jsonResources.jsonUserData}/>
+          <Login/>
           <Search/>
         </header>
         <div className="AppContent">
@@ -188,7 +188,7 @@ class App extends Component {
 export default connect(
   
   state => ({
-    displayState: state
+    blogState: state
   }),
 
   dispatch => ({

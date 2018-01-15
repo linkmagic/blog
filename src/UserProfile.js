@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './UserProfile.css'
 
@@ -11,7 +12,7 @@ function centeredUserPhoto() {
   photoImg.style.top = Math.round((photoDiv.offsetHeight / 2) - photoImg.offsetHeight / 2) + 'px';
 }
 
-export default class UserProfile extends Component {
+class UserProfile extends Component {
 
   visiblePreviewPhoto =() => {
     let photoDiv = document.getElementById('idPhotoPreview');
@@ -20,7 +21,26 @@ export default class UserProfile extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { userData, userId } = this.props;
+    let data = {};
+
+    if (userId) {
+      // open data other user
+      const { listUsers } = this.props.blogState;
+      for (let i = 0; i < listUsers.length; i++) {
+        if (listUsers[i].userid === userId) {
+          data = listUsers[i];
+          break;
+        }
+      }
+    } else {
+      // open data of the logged in user
+      data = userData;
+    }
+
+    if (data.avatar && data.avatar.length <= 0) {
+      data.avatar = 'img/avatar-default.png';
+    }
 
     return (
       <div className="UserProfile">
@@ -77,3 +97,13 @@ export default class UserProfile extends Component {
   }
 
 }
+
+export default connect(
+
+  state => ({
+    blogState: state
+  }),
+
+  dispatch => ({})
+
+)(UserProfile);

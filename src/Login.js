@@ -11,22 +11,16 @@ class Login extends Component {
   loginOnClick = () => {
     this.props.onDisplayContentChange({
       name: 'USER_PROFILE',
-      value: this.props.blogState.loginUser.userid
+      value: this.props.blogState.loginUser
     });
   };
 
   logoutOnClick = () => {
-    this.props.onLogoutUser({
-      name: 'LOGOUT_USER',
-      value: 0
-    });
+    this.props.onLogoutUser();
   };
 
   titleGuestOnClick = () => {
-    this.props.onDisplayContentChange({
-      name: 'LOGIN',
-      value: 0
-    });
+    this.props.onDisplayContentChange({ name: 'LOGIN' });
   };
 
   render() {
@@ -70,8 +64,8 @@ export default connect(
     onDisplayContentChange: (action) => {
       dispatch({ type: 'DISPLAY_CONTENT', action });
     },
-    onLogoutUser: (action) => {
-      dispatch({ type: 'LOGOUT_USER', action });
+    onLogoutUser: () => {
+      dispatch({ type: 'LOGOUT_USER' });
     }
   })
 
