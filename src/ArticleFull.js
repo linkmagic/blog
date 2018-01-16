@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './ArticleFull.css';
 
@@ -11,7 +12,7 @@ import PostItemComments from './PostItemComments';
 import RatingCounter from './RatingCounter';
 import PostItemBookmark from './PostItemBookmark';
 
-export default class ArticleFull extends Component {
+class ArticleFull extends Component {
 
   render() {
     const {
@@ -19,6 +20,7 @@ export default class ArticleFull extends Component {
       articleGroupName,
       authorNickname
     } = this.props;
+    const { loginUser } = this.props.blogState;
 
     return (
       <div className="ArticleFull">
@@ -39,7 +41,7 @@ export default class ArticleFull extends Component {
         <div className="ArticleFull__Info">
           <PostItemComments postItemComments={this.props.article.comments.length + " comments"}/>
           <RatingCounter article={this.props.article}/>
-          <PostItemBookmark/>
+          {('userid' in loginUser) ? <PostItemBookmark/> : ''}
         </div>
 
       </div>
@@ -47,3 +49,13 @@ export default class ArticleFull extends Component {
   }
 
 }
+
+export default connect(
+
+  state => ({
+    blogState: state
+  }),
+
+  dispatch => ({})
+
+)(ArticleFull);

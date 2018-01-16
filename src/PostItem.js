@@ -56,7 +56,7 @@ class PostItem extends Component {
         <div className="PostItem__Info">
           <PostItemComments postItemComments={article.comments.length + " comments"}/>
           <RatingCounter article={article}/>
-          { ('userid' in loginUser) ? <PostItemBookmark/> : '' }
+          {('userid' in loginUser) ? <PostItemBookmark/> : ''}
         </div>
 
       </div>

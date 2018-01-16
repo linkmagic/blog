@@ -33,4 +33,25 @@ export default class Utils {
     };
   };
 
+  static getId =() => {
+    let dateNow = new Date();
+    return (
+      String(dateNow.getFullYear()) +
+      String(((dateNow.getMonth() + 1) < 10 ? '0' : '') + (dateNow.getMonth() + 1)) +
+      String(dateNow.getDate() < 10 ? '0' : '') + dateNow.getDate() +
+      String(dateNow.getHours() < 10 ? '0' : '') + dateNow.getHours() +
+      String(dateNow.getMinutes() < 10 ? '0' : '') + dateNow.getMinutes() +
+      String(dateNow.getSeconds() < 10 ? '0' : '') + dateNow.getSeconds()
+    );
+  };
+
+  static getDateNow = () => {
+    let dateNow = new Date();
+    return (
+      String(dateNow.getFullYear()) + '.' +
+      String(((dateNow.getMonth() + 1) < 10 ? '0' : '') + (dateNow.getMonth() + 1)) + '.' +
+      String(dateNow.getDate() < 10 ? '0' : '') + dateNow.getDate()
+    );
+  };
+
 }

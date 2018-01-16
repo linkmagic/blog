@@ -205,7 +205,7 @@ class LoginWnd extends Component {
 
           <div className="LRUser__Tab__Login">
             <div className="LRUser__FieldLine">
-              <label className="LRUser__FieldLbl">Login</label>
+              <label className="LRUser__FieldLbl">E-mail</label>
               <input className="LRUser__FieldText" type="text" defaultValue="solo@gmail.com"
                      ref={ (input) => { this.LoginLoginTxt = input; }}/>
             </div>
@@ -222,7 +222,7 @@ class LoginWnd extends Component {
 
           <div className="LRUser__Tab__Register">
             <div className="LRUser__FieldLine">
-              <label className="LRUser__FieldLbl">Login</label>
+              <label className="LRUser__FieldLbl">E-mail</label>
               <input className="LRUser__FieldText" type="text"
                      ref={ (input) => { this.RegisterLoginTxt = input; }}/>
             </div>
