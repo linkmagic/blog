@@ -21,6 +21,7 @@ import SiteCopyrightLabel from './SiteCopyrightLabel';
 import ItemSocialNetwork from './ItemSocialNetwork';
 import SupportForm from './SupportForm';
 import AboutWnd from './AboutWnd';
+import ArticleCreate from './ArticleCreate';
 
 class App extends Component {
 
@@ -157,6 +158,14 @@ class App extends Component {
         return (
           <div className="AppContent__Container">
             <UserProfile userId={displayContent.value}/>
+          </div>
+        );
+      }
+
+      case 'CREATE_ARTICLE' : {
+        return (
+          <div className="AppContent__Container">
+            <ArticleCreate/>
           </div>
         );
       }

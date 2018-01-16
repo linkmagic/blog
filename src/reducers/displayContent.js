@@ -10,6 +10,7 @@
     'OPEN_ARTICLE'
     'OPEN_ARTICLES_BY_GROUP'
     'OPEN_OTHER_USER_PROFILE'
+    'CREATE_ARTICLE'
 */
 
 const initialState = {

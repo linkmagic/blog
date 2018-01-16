@@ -15,6 +15,12 @@ class Login extends Component {
     });
   };
 
+  newArticleOnClick = () => {
+    this.props.onDisplayContentChange({
+      name: 'CREATE_ARTICLE'
+    });
+  };
+
   logoutOnClick = () => {
     this.props.onLogoutUser();
     this.props.onDisplayContentChange({
@@ -34,7 +40,8 @@ class Login extends Component {
       resultRender = (
         <div className="Login">
           <DropDown>
-            <p><button onClick={this.logoutOnClick} className="DropDown__MenuItem">Logout</button></p>
+            <button onClick={this.newArticleOnClick} className="DropDown__MenuItem">New article</button>
+            <button onClick={this.logoutOnClick} className="DropDown__MenuItem">Logout</button>
           </DropDown>
           <p onClick={this.loginOnClick} className="Login__Title">{loginUser.name}</p>
           <img onClick={this.loginOnClick}

@@ -1,0 +1,73 @@
+.CreateArticle {
+  display: block;
+  margin: 20px 15px;
+}
+
+.CreateArticle__TabButtons {
+  display: block;
+  margin: 0 0 15px 0;
+}
+
+.CreateArticle__TabButton__Btn {
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+}
+
+.CreateArticle__Head {
+  display: block;
+}
+
+.CreateArticle__Body {
+  display: block;
+}
+
+.CreateArticle__LineItem {
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+.CreateArticle__Label,
+.CreateArticle__Text,
+.CreateArticle__ArticleGroup {
+  display: block;
+  font-family: Arial;
+  font-size: 15px;
+}
+
+.CreateArticle__Label {
+  font-weight: bold;
+}
+
+.CreateArticle__Text {
+  height: 17px;
+  width: calc(100% - 4px);
+}
+
+.CreateArticle__ArticleGroup {
+  height: 22px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.CreateArticle__ArticleBody {
+  display: block;
+  width: calc(100% - 4px);
+  height: 200px;
+}
+
+.CreateArticle__Button {
+  width: 100px;
+  height: 25px;
+}
+
+.CreateArticle__Create {
+  display: block;
+  /*   display: none; */
+}
+
+.CreateArticle__Preview {
+  display: none;
+  /*   display: block; */
+}
