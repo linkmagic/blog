@@ -25,19 +25,6 @@ import ArticleCreate from './ArticleCreate';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dynamicHeight: {
-        display: 'block',
-        width: '100%',
-        height: '0px',
-        outline: '2px dotted red'
-      }
-    };
-  }
-
   displayContent = () => {
     const { displayContent } = this.props.blogState;
 
@@ -45,7 +32,7 @@ class App extends Component {
 
       case 'LOGIN' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <LoginWnd/>
           </div>
         );
@@ -53,7 +40,7 @@ class App extends Component {
 
       case 'PUBLICATIONS' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
           {
             this.props.blogState.listArticles.map((article, index) => {
               return (
@@ -71,7 +58,7 @@ class App extends Component {
 
       case 'USERS' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <UserTable/>
           </div>
         );
@@ -91,7 +78,7 @@ class App extends Component {
         }
 
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <SearchResult searchFor={displayContent.value} searchResult={searchResult}/>
           </div>
         );
@@ -100,7 +87,7 @@ class App extends Component {
       case 'USER_PROFILE' : {
         const { loginUser } = this.props.blogState;
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <UserProfile userData={loginUser}/>
           </div>
         );
@@ -108,7 +95,7 @@ class App extends Component {
 
       case 'SUPPORT' : {
         return (
-            <div className="AppContent__Container">
+            <div className="App__Content__Container">
               <SupportForm/>
             </div>
         );
@@ -116,7 +103,7 @@ class App extends Component {
 
       case 'ABOUT' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <AboutWnd/>
           </div>
         );
@@ -128,7 +115,7 @@ class App extends Component {
         const groupname = Utils.getArticleGroupNameById(this.props.blogState.listArticleGroups, article.groupid);
 
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             {(article === null)
               ? <p>Article not found</p>
               : <ArticleFull article={article}
@@ -151,7 +138,7 @@ class App extends Component {
         }
 
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             {
               searchResult.map((article, index) => {
                 return (
@@ -169,7 +156,7 @@ class App extends Component {
 
       case 'OPEN_OTHER_USER_PROFILE' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <UserProfile userId={displayContent.value}/>
           </div>
         );
@@ -177,7 +164,7 @@ class App extends Component {
 
       case 'CREATE_ARTICLE' : {
         return (
-          <div className="AppContent__Container">
+          <div className="App__Content__Container">
             <ArticleCreate/>
           </div>
         );
@@ -187,29 +174,7 @@ class App extends Component {
     }
   };
 
-  componentDidMount() {
-    console.log('componentDidMount');
-    this.setState({
-      dynamicHeight : {
-        display: 'block',
-        width: '100%',
-        height: '100px',
-        outline: '2px dotted red'
-      }
-    });
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
-    // this.appContentDivElem
-    // this.footerDivElem
-    console.log(this.headerDivElem.style.height + 'px');
-  }
-
   render() {
-    console.log('render');
-    console.log(this.state);
-
     return (
       <div>
         <header className="App__Header" ref={(header) => { this.headerDivElem = header; }}>
@@ -219,12 +184,11 @@ class App extends Component {
           <Login/>
           <Search/>
         </header>
-        <div className="AppContent" ref={(div) => { this.appContentDivElem = div; }}>
+        <div className="App__Content" ref={(div) => { this.appContentDivElem = div; }}>
           <HeaderTopSpace/>
           {this.displayContent()}
         </div>
-        <div style={this.state.dynamicHeight}/>
-        <footer ref={(footer) => { this.footerDivElem = footer; }}>
+        <footer className="App__Footer" ref={(footer) => { this.footerDivElem = footer; }}>
           <div>
             <Logo/>
             <PanelHorizSpace spaceWidth={10}/>
