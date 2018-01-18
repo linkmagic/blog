@@ -25,6 +25,19 @@ import ArticleCreate from './ArticleCreate';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dynamicHeight: {
+        display: 'block',
+        width: '100%',
+        height: '0px',
+        outline: '2px dotted red'
+      }
+    };
+  }
+
   displayContent = () => {
     const { displayContent } = this.props.blogState;
 
@@ -174,21 +187,44 @@ class App extends Component {
     }
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+    this.setState({
+      dynamicHeight : {
+        display: 'block',
+        width: '100%',
+        height: '100px',
+        outline: '2px dotted red'
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+    // this.appContentDivElem
+    // this.footerDivElem
+    console.log(this.headerDivElem.style.height + 'px');
+  }
+
   render() {
+    console.log('render');
+    console.log(this.state);
+
     return (
       <div>
-        <header>
+        <header className="App__Header" ref={(header) => { this.headerDivElem = header; }}>
           <Logo/>
           <NavMenu menuTitle={'All publications'}/>
           <NavItem displayContentName={'USERS'} title={'All Users'}/>
           <Login/>
           <Search/>
         </header>
-        <div className="AppContent">
+        <div className="AppContent" ref={(div) => { this.appContentDivElem = div; }}>
           <HeaderTopSpace/>
           {this.displayContent()}
         </div>
-        <footer>
+        <div style={this.state.dynamicHeight}/>
+        <footer ref={(footer) => { this.footerDivElem = footer; }}>
           <div>
             <Logo/>
             <PanelHorizSpace spaceWidth={10}/>
