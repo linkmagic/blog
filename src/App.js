@@ -179,8 +179,8 @@ class App extends Component {
       <div>
         <header className="App__Header" ref={(header) => { this.headerDivElem = header; }}>
           <Logo/>
-          <NavMenu menuTitle={'All publications'}/>
-          <NavItem displayContentName={'USERS'} title={'All Users'}/>
+          <NavMenu menuTitle={'All'}/>
+          <NavItem displayContentName={'USERS'} title={'Users'}/>
           <Login/>
           <Search/>
         </header>
