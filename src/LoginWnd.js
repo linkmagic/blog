@@ -206,12 +206,12 @@ class LoginWnd extends Component {
           <div className="LRUser__Tab__Login">
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">E-mail</label>
-              <input className="LRUser__FieldText" type="text"
+              <input className="LRUser__FieldText" type="text" defaultValue="solo@gmail.com"
                      ref={ (input) => { this.LoginLoginTxt = input; }}/>
             </div>
             <div className="LRUser__FieldLine">
               <label className="LRUser__FieldLbl">Password</label>
-              <input className="LRUser__FieldTextPwd" type="password"
+              <input className="LRUser__FieldTextPwd" type="password" defaultValue="12345"
                      ref={ (input) => { this.LoginPasswordTxt = input; }}/>
             </div>
             <div className="LRUser__ButtonLine">

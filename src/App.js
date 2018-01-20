@@ -15,6 +15,7 @@ import PostItem from './PostItem';
 import ArticleFull from './ArticleFull';
 import UserTable from './UserTable';
 import UserProfile from './UserProfile';
+import UserProfileEdit from './UserProfileEdit';
 import SearchResult from './SearchResult';
 import PanelHorizSpace from './PanelHorizSpace';
 import SiteCopyrightLabel from './SiteCopyrightLabel';
@@ -89,6 +90,15 @@ class App extends Component {
         return (
           <div className="App__Content__Container">
             <UserProfile userData={loginUser}/>
+          </div>
+        );
+      }
+
+      case 'USER_PROFILE_EDIT' : {
+        let { loginUser } = this.props.blogState;
+        return (
+          <div className="App__Content__Container">
+            <UserProfileEdit userData={loginUser}/>
           </div>
         );
       }

@@ -5,6 +5,7 @@
     'USERS'
     'SEARCH'
     'USER_PROFILE'
+    'USER_PROFILE_EDIT'
     'SUPPORT'
     'ABOUT'
     'OPEN_ARTICLE'

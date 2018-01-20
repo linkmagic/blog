@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "create-react-app": "^1.4.3",
+    "create-react-app": "^1.5.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "5.0.6",

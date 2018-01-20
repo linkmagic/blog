@@ -21,6 +21,12 @@ class Login extends Component {
     });
   };
 
+  editProfileOnClick = () => {
+    this.props.onDisplayContentChange({
+      name: 'USER_PROFILE_EDIT'
+    });
+  };
+
   logoutOnClick = () => {
     this.props.onLogoutUser();
     this.props.onDisplayContentChange({
@@ -41,7 +47,7 @@ class Login extends Component {
         <div className="Login">
           <DropDown>
             <button onClick={this.newArticleOnClick} className="DropDown__MenuItem">New article</button>
-            {/*<button onClick={this.editProfileOnClick} className="DropDown__MenuItem">Edit profile</button>*/}
+            <button onClick={this.editProfileOnClick} className="DropDown__MenuItem">Edit profile</button>
             <button onClick={this.logoutOnClick} className="DropDown__MenuItem">Logout</button>
           </DropDown>
           <p onClick={this.loginOnClick} className="Login__Title">{loginUser.name}</p>

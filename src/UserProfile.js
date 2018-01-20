@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './UserProfile.css'
+import './UserProfile.css';
 
 function centeredUserPhoto() {
   let photoDiv = document.getElementById('idPhotoPreview');
@@ -49,41 +49,44 @@ class UserProfile extends Component {
                src={data.avatar}
                onClick={this.visiblePreviewPhoto}
                alt="user avatar"/>
-
         </div>
         <div className="UserProfile__Details">
-          <p className="UserProfile__Details__Name">
-            <span className="UserProfile__Details__Tag">Name:&nbsp;</span>
-            {data.name}
-          </p>
-          <p className="UserProfile__Details__Surname">
-            <span className="UserProfile__Details__Tag">Surname:&nbsp;</span>
-            {data.surname}
-          </p>
-          <p className="UserProfile__Details__Birthdate">
-            <span className="UserProfile__Details__Tag">Birthdate:&nbsp;</span>
-            {data.birthdate}
-          </p>
-          <p className="UserProfile__Details__RegDate">
-            <span className="UserProfile__Details__Tag">Registration:&nbsp;</span>
-            {data.regdate}
-          </p>
-          <p className="UserProfile__Details__Nickname">
-            <span className="UserProfile__Details__Tag">Nickname:&nbsp;</span>
-            {data.nickname}
-          </p>
-          <p className="UserProfile__Details__Email">
-            <span className="UserProfile__Details__Tag">E-mail:&nbsp;</span>
-            <a href={'mailto:' + data.email}>{data.email}</a>
-          </p>
-          <p className="UserProfile__Details__Rating">
-            <span className="UserProfile__Details__Tag">Rating:&nbsp;</span>
-            {data.rating}
-          </p>
-          <p className="UserProfile__Details__Publications">
-            <span className="UserProfile__Details__Tag">Publications:&nbsp;</span>
-            {data.publications}
-          </p>
+          <table className="UserProfile__Details__Table">
+            <thead>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Name:</span></td>
+              <td>{data.name}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Surname:</span></td>
+              <td>{data.surname}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Birthdate:</span></td>
+              <td>{data.birthdate}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Registration:</span></td>
+              <td>{data.regdate}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Nickname:</span></td>
+              <td>{data.nickname}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">E-mail:</span></td>
+              <td><a href={'mailto:' + data.email}>{data.email}</a></td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Rating:</span></td>
+              <td>{data.rating}</td>
+            </tr>
+            <tr>
+              <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Publications:</span></td>
+              <td>{data.publications}</td>
+            </tr>
+            </thead>
+          </table>
         </div>
         <div id="idPhotoPreview" className="PhotoPreview" onClick={this.visiblePreviewPhoto}>
           <img id="idPhotoPreview__Img" 
