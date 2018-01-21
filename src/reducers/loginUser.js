@@ -12,6 +12,10 @@ export default function loginUser(state = initialState, action) {
       return {};
     }
 
+    case 'UPDATE_DATA_USER' : {
+      return action.userInfo;
+    }
+
     default : return state;
   }
 

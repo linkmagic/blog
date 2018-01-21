@@ -30,6 +30,26 @@ export default function listUsers(state = initialState, action) {
     }
 
     case 'EDIT_USER' : {
+      let userData;
+
+      for (let i = 0; i < state.length; i++) {
+        if (state[i].userid === action.userInfo.userid) {
+          userData = state[i];
+          break;
+        }
+      }
+
+      userData.name = action.userInfo.name;
+      userData.surname = action.userInfo.surname;
+      userData.birthdate = action.userInfo.birthdate;
+      userData.nickname = action.userInfo.nickname;
+      userData.email = action.userInfo.email;
+      userData.avatar = action.userInfo.avatar;
+
+      return state;
+    }
+
+    case 'CHANGE_PASSWORD' : {
       return state;
     }
 

@@ -17,19 +17,34 @@ class UserProfileEdit extends Component {
     const { userData } = this.props;
     let isChanged = false;
 
-    if (userData.name !== String(document.getElementById('idUserNameTextInput').value)
-      || userData.surname !== String(document.getElementById('idUserSurnameTextInput').value)
-      || userData.nickname !== String(document.getElementById('idUserNicknameTextInput').value)
-      || userData.email !== String(document.getElementById('idUserEmailTextInput').value)
+    if (userData.name !== this.UserNameTextInput.value
+      || userData.surname !== this.UserSurnameTextInput.value
+      || userData.nickname !== this.UserNicknameTextInput.value
+      || userData.email !== this.UserEmailTextInput.value
     ) {
       isChanged = true;
     }
     this.setState({
       userDataIsChanged: isChanged
-    })
+    });
   };
 
   saveChangesOnClick = () => {
+    let userData = {
+      userid: this.props.userData.userid,
+      name: this.UserNameTextInput.value,
+      surname: this.UserSurnameTextInput.value,
+      birthdate: this.props.userData.birthdate, // !!!
+      nickname: this.UserNicknameTextInput.value,
+      email: this.UserEmailTextInput.value,
+      avatar: this.props.userData // !!!
+    };
+
+    this.props.onSaveUserChanges(userData);
+    this.props.onUpdateDataUser(userData);
+    this.setState({
+      userDataIsChanged: false
+    });
 
   };
 
@@ -55,15 +70,18 @@ class UserProfileEdit extends Component {
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Name:</span></td>
               <td>
-                <input id="idUserNameTextInput" className="UserProfile__Details__Input"
-                       type="text" defaultValue={userData.name} onBlur={this.userDataFieldOnBlur}/>
+                <input className="UserProfile__Details__Input" type="text"
+                       defaultValue={userData.name} onBlur={this.userDataFieldOnBlur}
+                       ref={(input) => { this.UserNameTextInput = input; }}
+                />
               </td>
             </tr>
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Surname:</span></td>
               <td>
-                <input id="idUserSurnameTextInput" className="UserProfile__Details__Input"
-                       type="text" defaultValue={userData.surname} onBlur={this.userDataFieldOnBlur}/>
+                <input className="UserProfile__Details__Input" type="text"
+                       defaultValue={userData.surname} onBlur={this.userDataFieldOnBlur}
+                       ref={(input) => { this.UserSurnameTextInput = input; }}/>
               </td>
             </tr>
             <tr>
@@ -76,14 +94,16 @@ class UserProfileEdit extends Component {
             </tr>
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Nickname:</span></td>
-              <td><input id="idUserNicknameTextInput" className="UserProfile__Details__Input" type="text"
-                         defaultValue={userData.nickname} onBlur={this.userDataFieldOnBlur}/>
+              <td><input className="UserProfile__Details__Input" type="text"
+                         defaultValue={userData.nickname} onBlur={this.userDataFieldOnBlur}
+                         ref={(input) => { this.UserNicknameTextInput = input; }}/>
               </td>
             </tr>
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">E-mail:</span></td>
-              <td><input id="idUserEmailTextInput" className="UserProfile__Details__Input" type="text"
-                         defaultValue={userData.email} onBlur={this.userDataFieldOnBlur}/>
+              <td><input className="UserProfile__Details__Input" type="text"
+                         defaultValue={userData.email} onBlur={this.userDataFieldOnBlur}
+                         ref={(input) => { this.UserEmailTextInput = input; }} />
               </td>
             </tr>
             <tr>
@@ -120,6 +140,16 @@ export default connect(
     blogState: state
   }),
 
-  dispatch => ({})
+  dispatch => ({
+    onSaveUserChanges: (userInfo) => {
+      dispatch({ type: 'EDIT_USER', userInfo });
+    },
+    onUpdateDataUser: (userInfo) => {
+      dispatch({ type: 'UPDATE_DATA_USER', userInfo });
+    },
+    onDisplayContentChange: (action) => {
+      dispatch({ type: 'DISPLAY_CONTENT', action });
+    }
+  })
 
 )(UserProfileEdit);
