@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 
 import './UserProfileEdit.css';
 
+const months = [
+    'January', 'February', 'March',
+    'April', 'May', 'Jun',
+    'July', 'August', 'September',
+    'October', 'November', 'Devember'
+];
+
+// not a leap year
+const days = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
 class UserProfileEdit extends Component {
 
   constructor(props) {
@@ -17,13 +27,17 @@ class UserProfileEdit extends Component {
     const { userData } = this.props;
     let isChanged = false;
 
+    let birthdate = this.SelectBoxYear.value + '.' + this.SelectBoxMonth.value + '.' + this.SelectBoxDay.value;
+
     if (userData.name !== this.UserNameTextInput.value
       || userData.surname !== this.UserSurnameTextInput.value
       || userData.nickname !== this.UserNicknameTextInput.value
       || userData.email !== this.UserEmailTextInput.value
+      || userData.birthdate !== birthdate
     ) {
       isChanged = true;
     }
+
     this.setState({
       userDataIsChanged: isChanged
     });
@@ -34,7 +48,7 @@ class UserProfileEdit extends Component {
       userid: this.props.userData.userid,
       name: this.UserNameTextInput.value,
       surname: this.UserSurnameTextInput.value,
-      birthdate: this.props.userData.birthdate, // !!!
+      birthdate: this.SelectBoxYear.value + '.' + this.SelectBoxMonth.value + '.' + this.SelectBoxDay.value,
       nickname: this.UserNicknameTextInput.value,
       email: this.UserEmailTextInput.value,
       avatar: this.props.userData // !!!
@@ -47,6 +61,69 @@ class UserProfileEdit extends Component {
     });
 
   };
+
+  SelectBoxBirthDateOnClick = () => {
+    this.setState({
+      userDataIsChanged: true
+    });
+  };
+
+  initDateComponent = () => {
+    let nowDate = new Date();
+
+    for (let i = 1901; i <= nowDate.getFullYear(); i++) {
+      let opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      this.SelectBoxYear.appendChild(opt);
+    }
+
+    for (let i = 0; i < months.length; i++) {
+      let opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = months[i];
+      this.SelectBoxMonth.appendChild(opt);
+    }
+  };
+
+  createDays = () => {
+    function isLeapYear(year) {
+      return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+    }
+
+    if (this.SelectBoxYear.selectedIndex > 0 && this.SelectBoxMonth.selectedIndex > 0) {
+      let year = +this.SelectBoxYear.options[this.SelectBoxYear.selectedIndex].value;
+      let month = +this.SelectBoxMonth.options[this.SelectBoxMonth.selectedIndex].value;
+      let dayCount = days[month] + ((month === 1 && isLeapYear(year)) ? 1 : 0);
+
+      // if (this.SelectBoxDay.options.length > 1) {
+      //   let opts = this.SelectBoxDay.options;
+      //   while(opts.length > 0) {
+      //     opts[opts.length - 1] = null;
+      //   }
+      // }
+
+      for (let i = 1; i <= dayCount; i++) {
+        let opt = document.createElement('option');
+        opt.value = i;
+        opt.innerHTML = i;
+        this.SelectBoxDay.appendChild(opt);
+      }
+    }
+  };
+
+  setUIUserBirthDate = () => {
+    let birthdate = this.props.userData.birthdate.split('.');
+    this.SelectBoxYear.value = birthdate[0];
+    this.SelectBoxMonth.value = +birthdate[1];
+    this.createDays();
+    this.SelectBoxDay.value = birthdate[2];
+  };
+
+  componentDidMount() {
+    this.initDateComponent();
+    this.setUIUserBirthDate();
+  }
 
   render() {
     let { userData } = this.props;
@@ -86,7 +163,28 @@ class UserProfileEdit extends Component {
             </tr>
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Birthdate:</span></td>
-              <td>{userData.birthdate}</td>
+              <td>
+                <div className="DateChooser">
+                  <select className="DateChooser__SelectBox"
+                          ref={(select) => { this.SelectBoxYear = select; }}
+                          onChange={this.createDays}
+                          onClick={this.SelectBoxBirthDateOnClick}>
+                    <option className="DateChooser__SelectBox-inactive" value="-1">Year</option>
+                  </select>
+                  <select className="DateChooser__SelectBox"
+                          ref={(select) => { this.SelectBoxMonth = select; }}
+                          onChange={this.createDays}
+                          onClick={this.SelectBoxBirthDateOnClick}>
+                    <option className="DateChooser__SelectBox-inactive" value="-1">Month</option>
+                  </select>
+                  <select className="DateChooser__SelectBox"
+                          ref={(select) => { this.SelectBoxDay = select; }}
+                          onChange={this.createDays}
+                          onClick={this.SelectBoxBirthDateOnClick}>
+                    <option className="DateChooser__SelectBox-inactive" value="-1">Day</option>
+                  </select>
+                </div>
+              </td>
             </tr>
             <tr>
               <td className="Table__TD__Left"><span className="UserProfile__Details__Tag">Registration:</span></td>
