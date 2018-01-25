@@ -51,7 +51,7 @@ class UserProfileEdit extends Component {
       birthdate: this.SelectBoxYear.value + '.' + this.SelectBoxMonth.value + '.' + this.SelectBoxDay.value,
       nickname: this.UserNicknameTextInput.value,
       email: this.UserEmailTextInput.value,
-      avatar: this.props.userData // !!!
+      avatar: this.props.userData.avatar // !!!
     };
 
     this.props.onSaveUserChanges(userData);
@@ -63,9 +63,7 @@ class UserProfileEdit extends Component {
   };
 
   SelectBoxBirthDateOnClick = () => {
-    this.setState({
-      userDataIsChanged: true
-    });
+    this.userDataFieldOnBlur();
   };
 
   initDateComponent = () => {
@@ -96,12 +94,16 @@ class UserProfileEdit extends Component {
       let month = +this.SelectBoxMonth.options[this.SelectBoxMonth.selectedIndex].value;
       let dayCount = days[month] + ((month === 1 && isLeapYear(year)) ? 1 : 0);
 
-      // if (this.SelectBoxDay.options.length > 1) {
-      //   let opts = this.SelectBoxDay.options;
-      //   while(opts.length > 0) {
-      //     opts[opts.length - 1] = null;
-      //   }
-      // }
+      let select = document.getElementById("idDateChooser__Day");
+      while (select.options.length > 0) {
+        select.remove(0);
+      }
+
+      let opt = document.createElement('option');
+      opt.value = '-1';
+      opt.innerHTML = 'Day';
+      opt.className = 'DateChooser__SelectBox-inactive';
+      this.SelectBoxDay.appendChild(opt);
 
       for (let i = 1; i <= dayCount; i++) {
         let opt = document.createElement('option');
@@ -139,7 +141,8 @@ class UserProfileEdit extends Component {
           <img className="UserProfile__Photo__Img"
                src={userData.avatar}
                onClick={this.visiblePreviewPhoto}
-               alt="user avatar"/>
+               alt="user avatar"
+          />
         </div>
         <div className="UserProfile__Details">
           <table className="UserProfile__Details__Table">
@@ -158,7 +161,8 @@ class UserProfileEdit extends Component {
               <td>
                 <input className="UserProfile__Details__Input" type="text"
                        defaultValue={userData.surname} onBlur={this.userDataFieldOnBlur}
-                       ref={(input) => { this.UserSurnameTextInput = input; }}/>
+                       ref={(input) => { this.UserSurnameTextInput = input; }}
+                />
               </td>
             </tr>
             <tr>
@@ -168,19 +172,24 @@ class UserProfileEdit extends Component {
                   <select className="DateChooser__SelectBox"
                           ref={(select) => { this.SelectBoxYear = select; }}
                           onChange={this.createDays}
-                          onClick={this.SelectBoxBirthDateOnClick}>
+                          onClick={this.SelectBoxBirthDateOnClick}
+                          onBlur={this.userDataFieldOnBlur}
+                  >
                     <option className="DateChooser__SelectBox-inactive" value="-1">Year</option>
                   </select>
                   <select className="DateChooser__SelectBox"
                           ref={(select) => { this.SelectBoxMonth = select; }}
                           onChange={this.createDays}
-                          onClick={this.SelectBoxBirthDateOnClick}>
+                          onClick={this.SelectBoxBirthDateOnClick}
+                          onBlur={this.userDataFieldOnBlur}
+                  >
                     <option className="DateChooser__SelectBox-inactive" value="-1">Month</option>
                   </select>
-                  <select className="DateChooser__SelectBox"
+                  <select className="DateChooser__SelectBox" id="idDateChooser__Day"
                           ref={(select) => { this.SelectBoxDay = select; }}
-                          onChange={this.createDays}
-                          onClick={this.SelectBoxBirthDateOnClick}>
+                          onClick={this.SelectBoxBirthDateOnClick}
+                          onBlur={this.userDataFieldOnBlur}
+                  >
                     <option className="DateChooser__SelectBox-inactive" value="-1">Day</option>
                   </select>
                 </div>
@@ -224,7 +233,8 @@ class UserProfileEdit extends Component {
                className="PhotoPreview__Img"
                src={userData.avatar}
                alt="user avatar"
-               title="Click to close"/>
+               title="Click to close"
+          />
         </div>
       </div>
     );
