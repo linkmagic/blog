@@ -1,6 +1,6 @@
 import Utils from '../Utils';
 
-const initialState = require('.././data/users.json');
+import initialState from '.././data/users.json';
 
 export default function listUsers(state = initialState, action) {
 

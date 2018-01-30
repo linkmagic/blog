@@ -1,4 +1,4 @@
-const initialState = require('.././data/articleGroups.json');
+import initialState from '.././data/articleGroups.json';
 
 export default function listArticleGroups(state = initialState, action) {
 
