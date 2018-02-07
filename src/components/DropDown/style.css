@@ -27,13 +27,8 @@
   background: #333333;
   background: linear-gradient(180deg, #444444 0%, #111111 100%);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-
   border: 1px solid #9a9a9a;
   border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   z-index: 1;
 }
 
