@@ -186,7 +186,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="AppContainer">
         <header className="App__Header" ref={(header) => { this.headerDivElem = header; }}>
           <Logo/>
           <NavMenu menuTitle={'All'}/>
