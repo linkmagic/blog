@@ -5,8 +5,8 @@
 <strong>Installation:</strong><br>
 $ git clone https://github.com/linkmagic/blog<br>
 $ cd blog<br>
+$ npm install -g create-react-app<br>
 $ npm install<br>
-$ npm install create-react-app<br>
 </p>
 
 <p>
